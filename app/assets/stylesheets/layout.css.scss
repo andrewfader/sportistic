@@ -1,0 +1,23 @@
+body {
+  background: #030000;
+  color: #c9df8e;
+  font-family: Helvetica, Arial;
+  .header {
+    .logo {
+      display: inline-block;
+      background-image: url('logo.jpg');
+      width: 204px;
+      height: 65px;
+    }
+    .menu {
+      display: inline-block;
+    }
+    .login {
+      float: right;
+      display: inline-block;
+    }
+    background-repeat: no-repeat;
+    height: 65px;
+    display: block;
+  }
+}

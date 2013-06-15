@@ -11,14 +11,3 @@
  *= require_self
  *= require_tree .
  */
-body {
-  background: #030000;
-  color: #c9df8e;
-  font-family: Helvetica, Arial;
-}
-div.header {
-  background-image: url('logo.jpg');
-  background-repeat: no-repeat;
-  height: 65px;
-  display: block;
-}
