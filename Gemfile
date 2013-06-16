@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'rails', '4.0.0.rc1'
 gem 'sass-rails', '~> 4.0.0.rc1'
 gem 'pg'
+gem 'simple_form'
 # gem 'therubyracer', platforms: :ruby
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
