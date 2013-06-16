@@ -19,4 +19,9 @@ body {
     height: 65px;
     display: block;
   }
+  form#edit_user {
+    input, label {
+      display: block;
+    }
+  }
 }
