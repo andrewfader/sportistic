@@ -2,15 +2,15 @@ ruby '2.0.0'
 source 'https://rubygems.org'
 
 gem 'binding_of_caller'
-gem 'protected_attributes' 
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem 'haml'
 gem 'jbuilder', '~> 1.0.1'
 gem 'jquery-rails'
+gem 'pg'
+gem 'protected_attributes'
 gem 'rails', '4.0.0.rc1'
 gem 'sass-rails', '~> 4.0.0.rc1'
-gem 'pg'
 gem 'simple_form'
 # gem 'therubyracer', platforms: :ruby
 gem 'turbolinks'
@@ -27,8 +27,10 @@ group :development, :test do
 end
 
 group :test do
+  gem 'cucumber-rails'
+  gem 'cucumber-websteps'
+  gem 'database_cleaner'
   gem 'rspec-rails'
-  gem 'cucumber'
 end
 
 group :production do

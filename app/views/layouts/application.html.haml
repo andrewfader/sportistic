@@ -8,14 +8,18 @@
   %body
     .header
       .logo
+        = link_to image_tag("/assets/logo.jpg"), "/"
       .menu
         About
         - unless current_user
           = link_to "Join", new_user_registration_path
-        = link_to "Profile", user_path(current_user)
+        - else
+          = link_to "Profile", user_path(current_user)
       .login
         - unless current_user
           = link_to "Log in", new_user_session_path
+        - else
+          = link_to "Log out", destroy_user_session_path
     .content
       %p.notice
         = notice

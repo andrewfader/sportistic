@@ -37,6 +37,7 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    addressable (2.3.4)
     arel (4.0.0)
     atomic (1.1.9)
     awesome_print (1.1.0)
@@ -44,6 +45,12 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.1.4)
+    capybara (2.1.0)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
     coderay (1.0.9)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -59,6 +66,15 @@ GEM
       diff-lcs (>= 1.1.3)
       gherkin (~> 2.12.0)
       multi_json (~> 1.3)
+    cucumber-rails (1.3.0)
+      capybara (>= 1.1.2)
+      cucumber (>= 1.1.8)
+      nokogiri (>= 1.5.0)
+    cucumber-websteps (0.10.0)
+      capybara (>= 1.1.2)
+      cucumber (>= 1.1.1)
+      launchy
+    database_cleaner (1.0.1)
     debug_inspector (0.0.2)
     debugger (1.6.0)
       columnize (>= 0.3.1)
@@ -106,13 +122,18 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.0)
     kgio (2.8.0)
+    launchy (2.3.0)
+      addressable (~> 2.3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     method_source (0.8.1)
     mime-types (1.23)
+    mini_portile (0.5.0)
     minitest (4.7.4)
     multi_json (1.7.7)
+    nokogiri (1.6.0)
+      mini_portile (~> 0.5.0)
     orm_adapter (0.0.7)
     pg (0.15.1)
     polyglot (0.3.3)
@@ -210,6 +231,8 @@ GEM
       raindrops (~> 0.7)
     warden (1.2.1)
       rack (>= 1.0)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
     yard (0.8.6.1)
 
 PLATFORMS
@@ -218,7 +241,9 @@ PLATFORMS
 DEPENDENCIES
   binding_of_caller
   coffee-rails (~> 4.0.0)
-  cucumber
+  cucumber-rails
+  cucumber-websteps
+  database_cleaner
   debugger
   devise
   haml
