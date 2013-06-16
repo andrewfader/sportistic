@@ -5,6 +5,7 @@ gem 'binding_of_caller'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem 'haml'
+gem 'html2haml'
 gem 'jbuilder', '~> 1.0.1'
 gem 'jquery-rails'
 gem 'pg'
@@ -22,8 +23,8 @@ group :doc do
 end
 
 group :development, :test do
-  gem 'jazz_hands'
   gem 'debugger'
+  gem 'jazz_hands'
 end
 
 group :test do
@@ -34,6 +35,6 @@ group :test do
 end
 
 group :production do
-  gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
   gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
+  gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
 end
