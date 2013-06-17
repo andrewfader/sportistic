@@ -4,7 +4,7 @@ Feature: User signup, login, and profile
     When I go to the home page
     And I follow "Join"
     And I fill in "Email" with "michael@phelps.com"
-    And I fill in "Password" with "foobar"
+    And I fill in "user_password" with "foobar"
     And I fill in "Password confirmation" with "foobar"
     And I press "Sign up"
     Then I should see "Welcome! You have signed up successfully."

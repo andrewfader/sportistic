@@ -3,7 +3,10 @@ class Ability
 
   def initialize(user)
     user ||= User.new
-    can [:new, :read, :create], Team
+    can [:new, :read], Team
+    if user.id
+      can :create, Team
+    end
     can [:edit, :update], Team do |team|
       team.captain_id == user.id
     end

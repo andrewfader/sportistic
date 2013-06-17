@@ -1,0 +1,9 @@
+= f.input :fullname, label: "Name"
+= f.input :sports
+= f.input :location
+= f.input :gender
+= f.input :interests
+= f.input :email, :required => true, :autofocus => true
+.inline_box
+  = f.label "Allow teams in need of players to contact me"
+  = f.input :privacy_toggle, label: false, as: :boolean
