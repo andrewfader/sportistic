@@ -1,6 +1,6 @@
 Feature: User signup, login, and profile
 
-  Scenario:
+  Scenario: Signup, edit profile, and logout
     When I go to the home page
     And I follow "Join"
     And I fill in "Email" with "michael@phelps.com"
@@ -21,9 +21,12 @@ Feature: User signup, login, and profile
     And I should see "Swimming, bong rips"
     And I should see "USA"
 
-
     When I follow "Log out"
     Then I should see "Signed out successfully."
 
-
-
+  Scenario: Login
+    Given a logged in user
+    When I go to the home page
+    Then I should not see "Join"
+    And I should not see "Log in"
+    But I should see "Log out"
