@@ -11,7 +11,7 @@ Feature: User signup, login, and profile
 
     When I follow "Profile"
     And I follow "Edit"
-    And I fill in "Fullname" with "Michael Phelps"
+    And I fill in "Name" with "Michael Phelps"
     And I fill in "Sports" with "Swimming, bong rips"
     And I fill in "Location" with "USA"
     And I fill in "Current password" with "foobar"

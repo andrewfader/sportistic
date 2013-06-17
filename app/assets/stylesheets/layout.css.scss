@@ -23,5 +23,10 @@ body {
     input, label {
       display: block;
     }
+    .inline_box {
+      input, label, div {
+        display: inline;
+      }
+    }
   }
 }
