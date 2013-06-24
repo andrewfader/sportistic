@@ -1,9 +1,16 @@
 %h2.name
   =@team.name
+  =image_tag(@team.photo.url)
   =link_to "Edit", edit_team_path(@team) if can? :edit, @team
 .location
   =@team.location
 .sport
   =@team.sport
+  =@team.league_name
+  =@team.league_url
+  =@team.team_type
+  =@team.year_founded
+  =@team.achievements
+  =@team.availability
 .league
   =link_to @team.league_url, @team.league_name

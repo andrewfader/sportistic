@@ -1,3 +1,10 @@
+%h2 Matching Teams
+For #{current_user.sports} and #{current_user.availability.map(&:presence).compact.to_sentence}
+%ul
+  - @matching_teams.each do |team|
+    %li
+      = link_to team.name, team_path(team)
+%h2 All Teams
 %ul
   - @teams.each do |team|
     %li
