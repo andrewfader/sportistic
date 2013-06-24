@@ -9,3 +9,10 @@
 .achievements=@team.achievements
 .availability=@team.availability.to_sentence
 .league=link_to @team.league_name, @team.league_url
+.roster
+  %ul
+    - @team.users.each do |user|
+      %li
+        = user.fullname
+- if can? :edit, Team
+  = link_to "invite new players to your team", new_user_invitation_path
