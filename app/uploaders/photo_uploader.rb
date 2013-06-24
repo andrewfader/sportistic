@@ -2,12 +2,9 @@
 require 'carrierwave/processing/mime_types'
 class PhotoUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
-  include CarrierWave::MimeType
   # include CarrierWave::MiniMagick
   # include Sprockets::Helpers::RailsHelper
   # include Sprockets::Helpers::IsolatedHelper
-
-  process :set_content_types
 
   if Rails.env.production?
     storage :fog
