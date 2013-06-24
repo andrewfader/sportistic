@@ -116,6 +116,7 @@ GEM
     factory_girl_rails (4.2.1)
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
+    ffaker (1.16.1)
     fog (0.9.0)
       builder
       excon (~> 0.6.1)
@@ -311,6 +312,7 @@ DEPENDENCIES
   devise!
   devise_invitable!
   factory_girl_rails
+  ffaker
   fog
   haml
   html2haml

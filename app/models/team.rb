@@ -14,4 +14,12 @@ class Team < ActiveRecord::Base
         (team.availability & user.availability).present?
     end
   end
+
+  def self.associate(user, id)
+    team = Team.where(captain_id: id).try(:first)
+    if team && !user.teams.include?(team)
+      user.teams << team
+    end
+    team
+  end
 end

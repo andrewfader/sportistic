@@ -1,13 +1,13 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
-  factory :user do |u|
-    u.email 'foobar@bar.com'
-    u.password 'foobar'
-    u.password_confirmation 'foobar'
-    u.fullname 'Foo Bar'
-    u.sports 'Baseball'
-    u.city 'Footown'
-    u.gender 'male'
+  factory :user do
+    sequence :email do |n|
+      "n#{Faker::Internet.email}"
+    end
+    password 'foobar'
+    password_confirmation 'foobar'
+    fullname Faker::Name.name
+    sports 'Baseball'
+    city 'Footown'
+    gender 'Male'
   end
 end
