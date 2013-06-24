@@ -1,13 +1,13 @@
 %h2.name= @user.fullname
 .image= image_tag(@user.photo.url)
 .bio
-  = link_to "Edit", edit_user_path(@user) if current_user == @user
+  = link_to "Edit", edit_user_registration_path if current_user == @user
   .gender= @user.gender
   .bio= @user.bio
   .city= @user.city
   .achievements= @user.achievements
 .sports
-  = link_to "Edit", edit_user_registration_path if current_user == @user
+  = link_to "Edit", edit_user_path(@user) if current_user == @user
   .sport= @user.sports
   .position= @user.position
   .experience_level= @user.experience_level
