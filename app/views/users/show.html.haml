@@ -1,19 +1,21 @@
 %h2.name= @user.fullname
 .image= image_tag(@user.photo.url)
 .bio
-  = link_to "Edit", edit_user_registration_path if current_user == @user
-  .gender= @user.gender
-  .bio= @user.bio
-  .city= @user.city
-  .achievements= @user.achievements
+  %h3 Personal Info
+  = link_to "Edit my personal info", edit_user_registration_path if current_user == @user
+  .gender Gender: #{@user.gender}
+  .bio Bio: #{@user.bio}
+  .city City: #{@user.city}
+  .achievements Achievements: #{@user.achievements}
 .sports
-  = link_to "Edit", edit_user_path(@user) if current_user == @user
+  %h3 Athletic Info
+  = link_to "Edit my athletic info", edit_user_path(@user) if current_user == @user
   .team
     = render 'teams/list', teams: @user.teams
-  .sport= @user.sports
-  .position= @user.position
-  .experience_level= @user.experience_level
-  .availability= @user.availability.to_sentence
-  .distance_to_travel= @user.distance_to_travel
-  .desire_to_join= @user.desire_to_join ? "Looking for a team" : "All set"
-  .privacy_toggle= @user.privacy_toggle ? "Wants to be contacted" : "Do not disturb"
+  .sport Sport: #{@user.sports}
+  .position Position: #{@user.position}
+  .experience_level Experience Level: #{@user.experience_level}
+  .availability Availability: #{@user.availability.to_sentence}
+  .distance_to_travel Distance Willing to Travel: #{@user.distance_to_travel}
+  .desire_to_join Team Status: #{@user.desire_to_join ? "Looking for a team" : "All set"}
+  .privacy_toggle Contact Me?: #{@user.privacy_toggle ? "Yes" : "Do not disturb"}
