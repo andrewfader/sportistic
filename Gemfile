@@ -2,6 +2,8 @@ ruby '2.0.0'
 source 'https://rubygems.org'
 
 gem 'binding_of_caller'
+gem 'carrierwave'
+gem 'rmagick'
 gem 'cancan'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
