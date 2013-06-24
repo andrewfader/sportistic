@@ -2,7 +2,13 @@
   = f.input :captain_id, input_html: { value: current_user.id }, as: :hidden
   = f.input :name
   = f.input :location
-  = f.input :sport
+  = f.input :photo
+  %p
+    = f.input :experience_level, as: :radio, collection: ["Beginner","Intermediate","Advanced","Awesome"]
+  = f.input :sport, label: "Sport", as: :radio, collection: ["Basketball", "Baseball", "Kickball", "Soccer", "Softball"]
   = f.input :league_name
   = f.input :league_url
+  = f.input :team_type
+  = f.input :year_founded
+  = f.input :achievements
   = f.submit
