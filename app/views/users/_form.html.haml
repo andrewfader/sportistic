@@ -1,6 +1,6 @@
 %p.bio
   = f.input :fullname, label: "Name"
-  = f.input :gender
+  = f.input :gender, as: :radio, collection: ["Male","Female"]
   = f.input :photo
   = f.input :bio
   = f.input :email, :required => true, :autofocus => true

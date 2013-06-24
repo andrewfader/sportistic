@@ -5,5 +5,4 @@ CarrierWave.configure do |config|
     :aws_secret_access_key  => 'X/XGTiWHRQjK6VCA27ZeakNzAsxsjO0SFjBGXrUW',
   }
   config.fog_directory  = 'sportistic'
-  config.fog_public     = false
 end
