@@ -11,7 +11,7 @@
   .sport= @user.sports
   .position= @user.position
   .experience_level= @user.experience_level
-  .availability= @user.availability.map(&:presence).compact.to_sentence
+  .availability= @user.availability.to_sentence
   .distance_to_travel= @user.distance_to_travel
   .desire_to_join= @user.desire_to_join ? "Looking for a team" : "All set"
   .privacy_toggle= @user.privacy_toggle ? "Wants to be contacted" : "Do not disturb"

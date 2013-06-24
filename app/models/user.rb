@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include Availability
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -16,5 +17,4 @@ class User < ActiveRecord::Base
                 soccer: ["Goalie","Defense","Midfield","Forward"],
                 softball: ["Pitcher","Catcher","1B","2B","3B","Outfield"],
                 kickball: ["Pitcher","Catcher","1B","2B","3B","Outfield"] }
-
 end
