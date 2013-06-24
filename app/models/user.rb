@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :user_teams
   has_many :teams, through: :user_teams
   serialize :availability
+  validates_presence_of :fullname, :email, :password, :sports, :city, :gender
 
   mount_uploader :photo, ::PhotoUploader
   POSITIONS = { baseball: ["Pitcher","Catcher","1B","2B","3B","Outfield"],
