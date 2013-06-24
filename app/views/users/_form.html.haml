@@ -7,21 +7,3 @@
   = f.input :phone
   = f.input :city
   = f.input :achievements
-
-%p.sports
-  %p
-    = f.input :sports, label: "Sport", as: :radio, collection: ["Basketball", "Baseball", "Kickball", "Soccer", "Softball"]
-  - if @user.sports.present?
-    %p
-      = f.input :position, as: :radio, collection: User::POSITIONS[@user.sports.downcase.to_sym]
-  %p
-    = f.input :experience_level, as: :radio, collection: ["Beginner","Intermediate","Advanced","Awesome"]
-  %p
-    = f.input :availability, as: :check_boxes, collection: ["Monday night","Tuesday night","Wednesday night","Thursday night","Friday night","Saturday morning","Sunday afternoon","Saturday evening","Sunday morning","Sunday afternoon","Sunday evening"]
-  = f.input :distance_to_travel, label: "Distance willing to travel"
-  .inline_box
-    = f.label "I want to join a team"
-    = f.input :desire_to_join, label: false, as: :boolean
-  .inline_box
-    = f.label "Allow others to contact me"
-    = f.input :privacy_toggle, label: false, as: :boolean
