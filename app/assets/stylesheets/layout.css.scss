@@ -28,5 +28,11 @@ body {
         display: inline;
       }
     }
+    span {
+      display: block;
+      input.radio, label.collection_radio {
+        display: inline;
+      }
+    }
   }
 }

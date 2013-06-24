@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130624004213) do
+ActiveRecord::Schema.define(version: 20130624005822) do
 
   create_table "teams", force: true do |t|
     t.string   "name"
@@ -45,12 +45,17 @@ ActiveRecord::Schema.define(version: 20130624004213) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "sports"
-    t.string   "location"
     t.string   "fullname"
     t.string   "gender"
-    t.string   "interests"
     t.boolean  "privacy_toggle"
     t.string   "photo"
+    t.string   "bio"
+    t.string   "phone"
+    t.string   "city"
+    t.string   "achievements"
+    t.string   "experience_level"
+    t.boolean  "desire_to_join"
+    t.string   "distance_to_travel"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

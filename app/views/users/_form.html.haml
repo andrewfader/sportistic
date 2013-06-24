@@ -1,10 +1,22 @@
-= f.input :fullname, label: "Name"
-= f.input :photo
-= f.input :sports
-= f.input :location
-= f.input :gender
-= f.input :interests
-= f.input :email, :required => true, :autofocus => true
-.inline_box
-  = f.label "Allow teams in need of players to contact me"
-  = f.input :privacy_toggle, label: false, as: :boolean
+%p.bio
+  = f.input :fullname, label: "Name"
+  = f.input :gender
+  = f.input :photo
+  = f.input :bio
+  = f.input :email, :required => true, :autofocus => true
+  = f.input :phone
+  = f.input :city
+  = f.input :achievements
+
+%p.sports
+  %p
+    = f.input :sports, label: "Sport", as: :radio, collection: ["Basketball", "Baseball", "Kickball", "Soccer", "Softball"]
+  %p
+    = f.input :experience_level, as: :radio, collection: ["Beginner","Intermediate","Advanced","Awesome"]
+  = f.input :distance_to_travel, label: "Distance willing to travel"
+  .inline_box
+    = f.label "I want to join a team"
+    = f.input :desire_to_join, label: false, as: :boolean
+  .inline_box
+    = f.label "Allow others to contact me"
+    = f.input :privacy_toggle, label: false, as: :boolean
