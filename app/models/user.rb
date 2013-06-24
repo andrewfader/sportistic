@@ -6,11 +6,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :fullname, :sports, :city, :privacy_toggle, :gender, :interests, :photo, :bio, :achievements, :distance_to_travel, :desire_to_join, :experience_level, :position, :availability, :phone
   has_many :user_teams
   has_many :teams, through: :user_teams
   serialize :availability
-  validates_presence_of :fullname, :email, :password, :sports, :city, :gender
+  validates_presence_of :fullname, :email, :sports, :city, :gender
 
   mount_uploader :photo, ::PhotoUploader
   POSITIONS = { baseball: ["Pitcher","Catcher","1B","2B","3B","Outfield"],

@@ -1,6 +1,7 @@
 ruby '2.0.0'
 source 'https://rubygems.org'
 
+gem 'better_errors'
 gem 'binding_of_caller'
 gem 'cancan'
 gem 'carrierwave'
@@ -10,11 +11,10 @@ gem 'devise_invitable', git: 'git://github.com/scambra/devise_invitable.git', br
 gem 'fog'
 gem 'haml'
 gem 'html2haml'
-gem 'inherited_resources'
+gem 'inherited_resources', git: 'git://github.com/josevalim/inherited_resources.git'
 gem 'jbuilder', '~> 1.0.1'
 gem 'jquery-rails'
 gem 'pg'
-gem 'protected_attributes'
 gem 'rails', '4.0.0.rc1'
 gem 'rmagick'
 gem 'sass-rails', '~> 4.0.0.rc1'
@@ -34,6 +34,7 @@ end
 
 group :development, :test do
   gem 'debugger'
+  gem 'factory_girl_rails'
   gem 'jazz_hands'
 end
 
