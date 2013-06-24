@@ -11,7 +11,7 @@ GIT
     rails_log_stdout (0.0.1)
 
 GIT
-  remote: git@github.com:plataformatec/devise.git
+  remote: git://github.com/plataformatec/devise.git
   revision: 6b5988d756d780903bf8c9ccb3e2b3b724ccebe8
   branch: rails4
   specs:
@@ -22,7 +22,7 @@ GIT
       warden (~> 1.2.1)
 
 GIT
-  remote: git@github.com:scambra/devise_invitable.git
+  remote: git://github.com/scambra/devise_invitable.git
   revision: 506c4bbc18bfa5461d79f77d4b272a0b47be3a23
   branch: rails4
   specs:
