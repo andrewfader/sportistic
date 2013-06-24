@@ -1,12 +1,20 @@
 # encoding: utf-8
-
+require 'carrierwave/processing/mime_types'
 class PhotoUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
+  include CarrierWave::MimeType
   # include CarrierWave::MiniMagick
   # include Sprockets::Helpers::RailsHelper
   # include Sprockets::Helpers::IsolatedHelper
-  storage :file
-  # storage :fog
+
+  process :set_content_types
+
+  if Rails.env.production?
+    storage :fog
+  else
+    storage :file
+  end
+
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
