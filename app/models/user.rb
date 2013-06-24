@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :fullname, :sports, :city, :privacy_toggle, :gender, :interests, :photo, :bio, :achievements, :distance_to_travel, :desire_to_join, :experience_level, :position, :availability
   has_many :user_teams
   has_many :teams, through: :user_teams
+  serialize :availability
 
   mount_uploader :photo, ::PhotoUploader
   POSITIONS = { baseball: ["Pitcher","Catcher","1B","2B","3B","Outfield"],
