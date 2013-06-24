@@ -10,7 +10,8 @@ class Ability
     can [:edit, :update], Team do |team|
       team.captain_id == user.id
     end
-    can [:show, :edit, :update], User do |luser|
+    can :read, User
+    can [:edit, :update], User do |luser|
       luser.id == user.id
     end
   end
