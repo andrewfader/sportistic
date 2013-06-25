@@ -3,7 +3,7 @@ Feature: User signup, login, and profile
   Scenario: Signup, edit profile, and logout
     When I go to the home page
     And I follow "Join"
-    And I fill in "Email" with "michael@phelps.com"
+    And I fill in "user_email" with "michael@phelps.com"
     And I fill in "user_password" with "foobar"
     And I fill in "Password confirmation" with "foobar"
     And I fill in "Name" with "Michael Phelps"

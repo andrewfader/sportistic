@@ -4,8 +4,8 @@
   = f.input :location
   = f.input :photo
   %p
-    = f.input :experience_level, as: :radio, collection: ["Beginner","Intermediate","Advanced","Awesome"]
-  = f.input :sport, label: "Sport", as: :radio, collection: ["Basketball", "Baseball", "Kickball", "Soccer", "Softball"]
+    = f.input :experience_level, as: :radio_buttons, collection: ["Beginner","Intermediate","Advanced","Awesome"]
+  = f.input :sport, label: "Sport", as: :radio_buttons, collection: ["Basketball", "Baseball", "Kickball", "Soccer", "Softball"]
   = f.input :league_name
   = f.input :league_url
   = f.input :team_type

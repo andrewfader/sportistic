@@ -28,9 +28,9 @@ body {
         display: inline;
       }
     }
-    span {
+    span.radio, span.checkbox {
       display: block;
-      input.radio, label.collection_radio {
+      input, label {
         display: inline;
       }
     }
