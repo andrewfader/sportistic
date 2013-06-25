@@ -14,5 +14,6 @@ class Ability
     can [:edit, :update], User do |luser|
       luser.id == user.id
     end
+    can :create, Player
   end
 end

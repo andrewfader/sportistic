@@ -5,7 +5,7 @@ FactoryGirl.define do
     end
     password 'foobar'
     password_confirmation 'foobar'
-    fullname Faker::Name.name
+    name Faker::Name.name
     sports 'Baseball'
     city 'Footown'
     gender 'Male'

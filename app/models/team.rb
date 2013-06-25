@@ -2,6 +2,8 @@ class Team < ActiveRecord::Base
   include Availability
   has_many :user_teams
   has_many :users, through: :user_teams
+  has_many :players
+  accepts_nested_attributes_for :players
   belongs_to :captain, class_name: User
   serialize :availability
   validates_presence_of :name, :location, :sport
