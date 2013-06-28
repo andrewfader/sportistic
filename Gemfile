@@ -17,9 +17,9 @@ gem 'jquery-rails'
 gem 'letter_opener', group: :development
 gem 'pg'
 gem 'rails_12factor', group: :production
-gem 'rails', '4.0.0.rc1'
+gem 'rails', '~> 4.0.0'
 gem 'mini_magick'
-gem 'sass-rails', '~> 4.0.0.rc1'
+gem 'sass-rails', '~> 4.0.0'
 gem 'simple_form', '~> 3.0.0.rc', github: 'plataformatec/simple_form'
 # gem 'therubyracer', platforms: :ruby
 gem 'turbolinks'
