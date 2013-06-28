@@ -1,5 +1,5 @@
 %h2.name= @user.name
-.image= image_tag(@user.photo.url)
+.image= image_tag(@user.photo.small.url)
 .bio
   %h3 Personal Info
   = link_to "Edit my personal info", edit_user_registration_path if current_user == @user

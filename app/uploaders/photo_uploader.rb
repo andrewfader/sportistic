@@ -1,8 +1,7 @@
 # encoding: utf-8
 require 'carrierwave/processing/mime_types'
 class PhotoUploader < CarrierWave::Uploader::Base
-  include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
   # include Sprockets::Helpers::RailsHelper
   # include Sprockets::Helpers::IsolatedHelper
 
@@ -25,19 +24,20 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  # process :scale => [200, 300]
+  # process :scale => [500, 300]
   #
   # def scale(width, height)
   #   # do something
   # end
 
-  # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process :scale => [50, 50]
-  # end
+  version :thumb do
+    resize_to_fill(50,50)
+  end
 
-  # Add a white list of extensions which are allowed to be uploaded.
-  # For images you might use something like this:
+  version :small do
+    resize_to_fit(550,350)
+  end
+
   def extension_white_list
     %w(jpg jpeg gif png)
   end

@@ -1,4 +1,5 @@
-%ul
-  - teams.each do |team|
-    %li
-      = link_to team.name, team_path(team)
+- teams.each do |team|
+  - if team.photo.thumb.url.present?
+    = link_to image_tag(team.photo.thumb.url, title: team.name, alt: team.name), team_path(team)
+  - else
+    = link_to team.name, team_path(team)

@@ -1,5 +1,5 @@
 %h2.name=@team.name
-.image=image_tag(@team.photo.url)
+.image=image_tag(@team.photo.small.url)
 =link_to "Edit my team info", edit_team_path(@team) if can? :edit, @team
 .location Location: #{@team.location}
 .sport Sport: #{@team.sport}
