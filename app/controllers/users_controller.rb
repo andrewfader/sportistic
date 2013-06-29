@@ -6,6 +6,7 @@ class UsersController < InheritedResources::Base
     @user = User.find(params[:user_id])
     team = Team.associate(@user, current_user.id)
     flash[:notice] = "#{@user.name}'s request to join #{team.name} was approved"
+    UserMailer.approval_notice(@user, team).deliver
     redirect_to team_path(team)
   end
 
