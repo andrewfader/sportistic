@@ -11,8 +11,10 @@ class TeamsController < InheritedResources::Base
   end
 
   def join
-    @team = Team.find_by_id(params[:team_id])
-    @team.associate(current_user, false) if @team
+    if (@team = Team.find_by_id(params[:team_id]))
+      UserMailer.join_request(current_user, @team).deliver
+      @team.associate(current_user, false)
+    end
   end
 
   private
