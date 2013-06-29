@@ -12,5 +12,5 @@ function readyUp() {
     height: 1000,
   })
 
-  $('.ui-date-picker').datepicker();
+  $('.ui-date-picker').datetimepicker();
 }
