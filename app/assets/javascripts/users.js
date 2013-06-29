@@ -9,6 +9,6 @@ function readyUp() {
   $('.calendar').fullCalendar({
     events: '/games.json',
     theme: true,
-    defaultView: 'basicWeek'
+    height: 1000,
   })
 }

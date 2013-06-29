@@ -29,6 +29,8 @@
           (#{link_to "Approve", user_approve_path(user)})
 
   = link_to "Invite new players to my team", new_user_invitation_path
+  %br
+  = link_to "Add a new game", new_team_game_path(@team.id)
   .add_player
     %h3 Add a new non-user player
     = simple_form_for [@team, @team.players.build] do |f|

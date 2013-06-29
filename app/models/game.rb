@@ -1,8 +1,16 @@
 class Game < ActiveRecord::Base
-  # self.include_root_in_json = true
   has_many :user_games
   has_many :users, through: :user_games
-  # def as_json(options={})
-    # super.merge!(url: game_path(id))
-  # end
+  belongs_to :team
+  belongs_to :creator, class_name: User
+  validates_presence_of :team_id
+
+  def url
+    "/games/#{id}"
+  end
+
+  def as_json(options={})
+    super.merge(url: url)
+  end
+
 end

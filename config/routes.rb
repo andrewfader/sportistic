@@ -9,5 +9,7 @@ Sportistic::Application.routes.draw do
     resources :games
     get 'join'
   end
-resources :games
+  resources :games do
+    get 'join'
+  end
 end

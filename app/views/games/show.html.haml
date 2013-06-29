@@ -1,2 +1,6 @@
 %h2=@game.title
+= image_tag @game.team.photo.small.url, title: @game.team.name, alt: @game.team.name
 %h3 #{@game.start} to #{@game.end}
+.players
+  = render "users/list", users: @game.users
+= link_to "Play in this game", game_join_path(@game)
