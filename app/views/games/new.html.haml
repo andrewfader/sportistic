@@ -5,7 +5,7 @@
   - if @team.present?
     = f.input :team_id, as: :hidden, input_html: {value: @team.id}
   - else
-    = f.input :team_id, collection: current_user.teams, label_method: :name, value_method: :id
+    = f.input :team_id, collection: current_user.member_teams, label_method: :name, value_method: :id
   = f.input :public, as: :boolean, label: "Public game"
   = f.input :creator_id, as: :hidden, input_html: { value: current_user.id }
   = f.submit
