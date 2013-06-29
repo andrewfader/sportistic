@@ -26,6 +26,13 @@ GIT
       activemodel (>= 4.0.0, < 4.1)
 
 GIT
+  remote: git://github.com/rweng/jquery-datatables-rails.git
+  revision: 494f752b8eb8350f33841c822a67d014c869219f
+  specs:
+    jquery-datatables-rails (1.11.2)
+      jquery-rails
+
+GIT
   remote: git://github.com/scambra/devise_invitable.git
   revision: 506c4bbc18bfa5461d79f77d4b272a0b47be3a23
   branch: rails4
@@ -328,6 +335,7 @@ DEPENDENCIES
   inherited_resources!
   jazz_hands
   jbuilder (~> 1.0.1)
+  jquery-datatables-rails!
   jquery-rails
   letter_opener
   mini_magick

@@ -36,3 +36,13 @@ body {
     }
   }
 }
+table.dataTable {
+  tr, td {
+    background-color: #2f2f2f !important;
+  }
+  div.DataTables_sort_wrapper {
+    span {
+      display: inline !important;
+    }
+  }
+}

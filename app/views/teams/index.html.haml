@@ -4,4 +4,18 @@
   = render "list", teams: @matching_teams
 
 %h2 All Teams
-= render "list", teams: @teams
+%table.datatable
+  %thead
+    %tr
+      %th Name
+      %th Sport
+      %th Location
+      %th Experience Level
+      %th Availability
+  -Team.all.each do |team|
+    %tr
+      %td=link_to team.name, team_path(team)
+      %td=team.sport
+      %td=team.location
+      %td=team.experience_level
+      %td=team.availability.to_sentence

@@ -14,6 +14,7 @@ gem 'html2haml'
 gem 'inherited_resources', github: 'josevalim/inherited_resources'
 gem 'jbuilder', '~> 1.0.1'
 gem 'jquery-rails'
+gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 gem 'letter_opener', group: :development
 gem 'pg'
 gem 'rails_12factor', group: :production

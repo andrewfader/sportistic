@@ -1,0 +1,23 @@
+%table.datatable
+  %thead
+    %tr
+      %th Name
+      %th Gender
+      %th City
+      %th Sport
+      %th Position
+      %th Experience Level
+      %th Distance Willing to Travel
+      %th Looking for a Team?
+      %th Availability
+  -User.where(privacy_toggle: true).each do |user|
+    %tr
+      %td=link_to user.name, user_path(user)
+      %td=user.gender
+      %td=user.city
+      %td=user.sports
+      %td=user.position
+      %td=user.experience_level
+      %td=user.distance_to_travel
+      %td=user.desire_to_join ? "Looking" : "No"
+      %td=user.availability.to_sentence
