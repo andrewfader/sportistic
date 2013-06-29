@@ -9,6 +9,13 @@
 .achievements Achievements: #{@team.achievements}
 .availability Availability: #{@team.availability.to_sentence}
 .league League: #{link_to @team.league_name, @team.league_url}
+- if @team.games.present?
+  .games
+    %h3 Games
+    %ul
+      - @team.games.each do |game|
+        %li
+          = link_to game.title, game_path(game)
 .roster
   %h3 Captain: #{link_to @team.captain.name, user_path(@team.captain)}
   %h3 Roster
