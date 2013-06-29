@@ -12,4 +12,6 @@
  *= require_tree .
  *= require dataTables/jquery.dataTables
  *= require_tree ../../../vendor/assets/stylesheets
+ *= require fullcalendar
+ *= require fullcalendar.print
  */

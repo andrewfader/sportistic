@@ -3,6 +3,7 @@ class Team < ActiveRecord::Base
   has_many :user_teams
   has_many :users, through: :user_teams
   has_many :players
+  has_many :games
   accepts_nested_attributes_for :players
   belongs_to :captain, class_name: User
   serialize :availability

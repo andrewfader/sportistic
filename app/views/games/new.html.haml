@@ -1,0 +1,8 @@
+= simple_form_for @game do |f|
+  = f.input :title
+  = f.input :start
+  = f.input :end
+  = f.input :team_id, collection: Team.all, label_method: :name, value_method: :id
+  = f.input :public, as: :boolean, label: "Public game"
+  = f.input :creator_id, as: :hidden, input_html: { value: current_user.id }
+  = f.submit

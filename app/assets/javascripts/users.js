@@ -5,4 +5,10 @@ function readyUp() {
   $('.datatable').dataTable({
     "bJQueryUI": true
   });
+
+  $('.calendar').fullCalendar({
+    events: '/games.json',
+    theme: true,
+    defaultView: 'basicWeek'
+  })
 }

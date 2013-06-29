@@ -6,6 +6,8 @@ Sportistic::Application.routes.draw do
   end
   resources :teams, only: [:new, :create, :edit, :show, :index, :update] do
     resources :players
+    resources :games
     get 'join'
   end
+resources :games
 end

@@ -17,6 +17,7 @@
           = link_to "Profile", user_path(current_user)
         = link_to "Teams", teams_path
         = link_to "Players", users_path
+        = link_to "Games", games_path
       .login
         - unless current_user
           = link_to "Log in", new_user_session_path

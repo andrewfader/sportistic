@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   has_many :user_teams
   has_many :teams, through: :user_teams
+
+  has_many :user_games
+  has_many :games, through: :user_games
+
   serialize :availability
   validates_presence_of :name, :email, :sports, :city, :gender
 
