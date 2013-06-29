@@ -1,4 +1,5 @@
 class UserMailer < ActionMailer::Base
+  default from: "welcome@playsportistic.com"
   def join_request(user, team)
     @user = user
     @team = team
