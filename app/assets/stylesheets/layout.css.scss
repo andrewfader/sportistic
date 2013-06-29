@@ -46,3 +46,12 @@ table.dataTable {
     }
   }
 }
+p.notice, p.alert {
+  font-weight: bold;
+}
+p.alert {
+  color: red;
+}
+p.notice {
+  color: yellow;
+}

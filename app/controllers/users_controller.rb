@@ -4,7 +4,9 @@ class UsersController < InheritedResources::Base
 
   def approve
     @user = User.find(params[:user_id])
-    Team.associate(@user, current_user.id)
+    team = Team.associate(@user, current_user.id)
+    flash[:notice] = "#{@user}'s request to join #{team.name} was approved"
+    redirect_to team_path(team)
   end
 
   private
