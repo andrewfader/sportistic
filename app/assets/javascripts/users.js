@@ -11,4 +11,6 @@ function readyUp() {
     theme: true,
     height: 1000,
   })
+
+  $('.ui-date-picker').datepicker();
 }
