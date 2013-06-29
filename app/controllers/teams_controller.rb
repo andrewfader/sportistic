@@ -1,5 +1,5 @@
 class TeamsController < InheritedResources::Base
-  authorize_resource
+  load_and_authorize_resource
   def index
     @matching_teams = Team.matching(current_user) if current_user
     super
@@ -8,6 +8,11 @@ class TeamsController < InheritedResources::Base
   def create
     super
     @team.users << current_user
+  end
+
+  def join
+    @team = Team.find_by_id(params[:team_id])
+    @team.associate(current_user, false) if @team
   end
 
   private

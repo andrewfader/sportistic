@@ -2,6 +2,11 @@ class UsersController < InheritedResources::Base
   before_filter :authenticate_user!
   authorize_resource
 
+  def approve
+    @user = User.find(params[:user_id])
+    Team.associate(@user, current_user.id)
+  end
+
   private
 
   def permitted_params

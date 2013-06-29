@@ -5,7 +5,8 @@ class Ability
     user ||= User.new
     can [:new, :read], Team
     if user.id
-      can :create, Team
+      can [:create, :join], Team
+      can :approve, User
     end
     can [:edit, :update], Team do |team|
       team.captain_id == user.id

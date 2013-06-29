@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
                 soccer: ["Goalie","Defense","Midfield","Forward"],
                 softball: ["Pitcher","Catcher","1B","2B","3B","Outfield"],
                 kickball: ["Pitcher","Catcher","1B","2B","3B","Outfield"] }
+
+  def member_teams
+    user_teams.where(membership: true).map(&:team)
+  end
 end
