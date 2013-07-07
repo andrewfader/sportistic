@@ -3,24 +3,20 @@ class Ability
 
   def initialize(user)
     user ||= User.new
-    can [:new, :read, :index], Team
     if user.id
-      can [:create, :join, :destroy], Team
+      can [:new, :create, :join, :destroy], Team
+      can [:new, :create, :edit, :update, :join], Game
       can :approve, User
       can :create, Player
     end
     can [:edit, :update], Team do |team|
       team.captain_id == user.id
     end
-    can [:read, :index], User
     can [:edit, :update], User do |luser|
       luser.id == user.id
     end
-    can [:new, :read, :index, :create, :edit, :update], Game
-    # can [:create, :edit, :update], Game do |game|
-      # if game.team
-        # game.team.member_users.include? user
-      # end
-    # end
+    can [:read, :index], Game
+    can [:read, :index], Team
+    can [:read, :index], User
   end
 end
