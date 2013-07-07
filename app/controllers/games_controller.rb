@@ -1,5 +1,9 @@
 class GamesController < InheritedResources::Base
+  load_and_authorize_resource
   respond_to :json
+
+  autocomplete :team, :name
+  skip_authorize_resource only: :autocomplete_team_name
 
   def index
     super
@@ -17,6 +21,11 @@ class GamesController < InheritedResources::Base
     @game.users << current_user
     flash[:notice] = "You are going to play in the game."
     redirect_to game_path(@game)
+  end
+
+  def get_autocomplete_items(parameters)
+    items = super(parameters)
+    items = items & current_user.member_teams
   end
 
   private

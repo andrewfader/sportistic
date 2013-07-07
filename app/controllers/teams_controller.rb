@@ -1,5 +1,6 @@
 class TeamsController < InheritedResources::Base
   load_and_authorize_resource
+
   def index
     @matching_teams = Team.matching(current_user) if current_user
     super

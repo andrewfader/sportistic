@@ -1,15 +1,19 @@
 = simple_form_for @user do |f|
   %p.sports
     %p
-      = f.input :sports, label: "Sport", as: :radio_buttons, collection: ["Basketball", "Baseball", "Kickball", "Soccer", "Softball"]
+      = f.input :sports, as: :check_boxes, collection: ["Basketball", "Baseball", "Kickball", "Soccer", "Softball"]
     - if @user.sports.present?
       %p
-        = f.input :position, as: :radio_buttons, collection: User::POSITIONS[@user.sports.downcase.to_sym]
+        = f.input :position, as: :check_boxes, collection: User.possible_positions(@user.sports)
     %p
       = f.input :experience_level, as: :radio_buttons, collection: ["Beginner","Intermediate","Advanced","Awesome"]
     %p
       = f.input :availability, as: :check_boxes, collection: ["Monday night","Tuesday night","Wednesday night","Thursday night","Friday night","Saturday morning","Sunday afternoon","Saturday evening","Sunday morning","Sunday afternoon","Sunday evening"]
     = f.input :distance_to_travel, label: "Distance willing to travel"
+    .teams
+      = f.label "Request to Join Team"
+      = f.autocomplete_field :teams, autocomplete_team_name_users_path, id_element: '#user_team_ids', value: ""
+      = f.association :teams, as: :hidden
     .inline_box
       = f.label "I want to join a team"
       = f.input :desire_to_join, label: false, as: :boolean

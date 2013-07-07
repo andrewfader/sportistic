@@ -10,10 +10,17 @@
 .sports
   %h3 Athletic Info
   = link_to "Edit my athletic info", edit_user_path(@user) if current_user == @user
-  .team
-    = render 'teams/list', teams: @user.member_teams
-  .sport Sport: #{@user.sports}
-  .position Position: #{@user.position}
+  - if @user.member_teams.present?
+    .team
+      %h4 Teams
+      = render 'teams/list', teams: @user.member_teams
+  - if @user.pending_teams.present?
+    .pending_teams
+      %h4 Pending Teams
+      = render 'teams/list', teams: @user.pending_teams
+  %p
+  .sport Sports: #{@user.sports.to_sentence}
+  .position Position: #{@user.position.to_sentence}
   .experience_level Experience Level: #{@user.experience_level}
   .availability Availability: #{@user.availability.to_sentence}
   .distance_to_travel Distance Willing to Travel: #{@user.distance_to_travel}

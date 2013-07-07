@@ -2,17 +2,40 @@ class UsersController < InheritedResources::Base
   before_filter :authenticate_user!
   authorize_resource
 
+  autocomplete :team, :name
+  skip_authorize_resource only: :autocomplete_team_name
+
   def approve
-    @user = User.find(params[:user_id])
-    team = Team.associate(@user, current_user.id)
-    flash[:notice] = "#{@user.name}'s request to join #{team.name} was approved"
-    UserMailer.approval_notice(@user, team).deliver
-    redirect_to team_path(team)
+    if @user = User.find_by_id(params[:user_id])
+      if team = Team.associate(@user, current_user.id)
+        flash[:notice] = "#{@user.name}'s request to join #{team.name} was approved"
+        UserMailer.approval_notice(@user, team).deliver
+        path = team_path(team)
+      end
+      path = user_path(@user)
+    end
+    path = "/"
+    redirect_to path
+  end
+
+  def update
+    @user = User.find(params[:id])
+    params["user"].delete("teams")
+    if team_id = params["user"]["team_ids"]
+      if team = Team.find_by_id(team_id.to_i)
+        if !@user.teams.include? team
+          UserMailer.join_request(current_user, @team).deliver
+          team.associate(@user, false)
+        end
+      end
+    end
+    params["user"].delete("team_ids")
+    super
   end
 
   private
 
   def permitted_params
-    params.permit(user: [:sports, {availability: []}, :distance_to_travel, :desire_to_join, :privacy_toggle, :position, :experience_level])
+    params.permit(user: [{sports: []}, {availability: []}, :experience_level, :distance_to_travel, :desire_to_join, :privacy_toggle, {position: []}, :team_ids, {teams: []}])
   end
 end

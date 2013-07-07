@@ -1,6 +1,6 @@
 - if @matching_teams
   %h2 Matching Teams
-  For #{current_user.availability.to_sentence} #{current_user.sports}
+  For #{current_user.availability.to_sentence} #{current_user.sports.to_sentence}
   .matching
     = render "list", teams: @matching_teams
 

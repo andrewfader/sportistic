@@ -5,7 +5,7 @@
   = f.input :fullname, label: "Name"
   = f.input :gender, as: :radio, collection: ["Male","Female"]
   = f.input :city
-  = f.input :sports, label: "Sport", as: :radio, collection: ["Basketball", "Baseball", "Kickball", "Soccer", "Softball"]
+  = f.input :sports, as: :check_boxes, collection: ["Basketball", "Baseball", "Kickball", "Soccer", "Softball"]
   = f.input :password
   = f.input :password_confirmation
   = f.submit t("devise.invitations.edit.submit_button")

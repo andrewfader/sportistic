@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require dataTables/jquery.dataTables/
-//= require_tree ../../../vendor/assets/javascripts
 //= require fullcalendar
 //= require turbolinks
+//= require_tree ../../../vendor/assets/javascripts
 //= require_tree .

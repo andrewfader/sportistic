@@ -3,7 +3,7 @@ class Game < ActiveRecord::Base
   has_many :users, through: :user_games
   belongs_to :team
   belongs_to :creator, class_name: User
-  validates_presence_of :team_id
+  validates_presence_of :team_id, :start
 
   def url
     "/games/#{id}"

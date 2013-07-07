@@ -15,4 +15,6 @@ function readyUp() {
   $('.ui-date-picker').datetimepicker(
     { dateFormat: 'dd-M-yy' }
   );
+
+  $('input[data-autocomplete]').railsAutocomplete();
 }

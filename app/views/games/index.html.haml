@@ -1,2 +1,3 @@
-= link_to "Create a game", new_game_path if current_user.member_teams.present?
+- if current_user.member_teams.present?
+  = link_to "Create a game", new_game_path if current_user.member_teams.present?
 .calendar

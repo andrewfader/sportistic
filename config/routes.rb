@@ -3,6 +3,7 @@ Sportistic::Application.routes.draw do
   devise_for :users, path_prefix: "my", controllers: { registrations: "registrations", invitations: "invitations" }
   resources :users, only: [:show, :edit, :update, :index] do
     get 'approve'
+    get :autocomplete_team_name, on: :collection
   end
   resources :teams, only: [:new, :create, :edit, :show, :index, :update] do
     resources :players
@@ -11,5 +12,6 @@ Sportistic::Application.routes.draw do
   end
   resources :games do
     get 'join'
+    get :autocomplete_team_name, on: :collection
   end
 end

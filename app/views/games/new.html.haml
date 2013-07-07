@@ -3,9 +3,12 @@
   = f.input :start, as: :ui_date_picker
   = f.input :end, as: :ui_date_picker
   - if @team.present?
-    = f.input :team_id, as: :hidden, input_html: {value: @team.id}
+    = f.input :team_id, as: :hidden, input_html: { value: @team.id }
+    Team: #{@team.name}
   - else
-    = f.input :team_id, collection: current_user.member_teams, label_method: :name, value_method: :id
+    = f.input :team_id, as: :hidden
+    = f.label "* Team"
+    = f.autocomplete_field :team, autocomplete_team_name_games_path, id_element: '#game_team_id', value: ""
   = f.input :public, as: :boolean, label: "Public game"
   = f.input :creator_id, as: :hidden, input_html: { value: current_user.id }
   = f.submit
