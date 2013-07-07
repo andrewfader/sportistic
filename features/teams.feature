@@ -14,7 +14,7 @@ Feature: Teams
     And I follow "Teams"
     Then I should see "Hanshin Tigers"
 
-    When I follow "Hanshin Tigers"
+    When I follow "Hanshin Tigers" within ".datatable"
     Then I should see "Baseball"
     And I should see "Beginner"
     And I should see "MLB"

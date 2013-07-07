@@ -1,8 +1,8 @@
-- if @matching_teams
-  %h2 Matching Teams
-  For #{current_user.availability.to_sentence} #{current_user.sports.to_sentence}
-  .matching
-    = render "list", teams: @matching_teams
+- [[@matching_teams, "#{current_user.availability.to_sentence} #{current_user.sports.to_sentence}"], [current_user.member_teams, "My Teams"], [Team.where(captain_id: current_user.id).to_a, "Captainships"]].each do |teams, caption|
+  - if teams.present?
+    %h2=caption
+    .team_list
+      = render "list", teams: teams
 
 %h2 All Teams
 %table.datatable
