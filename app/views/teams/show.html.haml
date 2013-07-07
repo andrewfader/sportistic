@@ -26,6 +26,7 @@
     - @team.players.each do |player|
       %li
         = player.name
+
 - if can? :edit, @team
   - if @team.pending_users.present?
     %h3 Pending players
@@ -33,7 +34,7 @@
       - @team.pending_users.each do |user|
         %li
           = link_to user.name, user_path(user)
-          (#{link_to "Approve", user_approve_path(user)})
+          (#{link_to "Approve", user_approve_path(user, team_id: @team.id)})
 
   = link_to "Invite new players to my team", new_user_invitation_path
   %br
@@ -44,5 +45,9 @@
       = f.input :name
       = f.input :team_id, as: :hidden, input_html: { value: @team.id }
       = f.submit
+  = link_to "Delete team", team_path(@team), confirm: "Are you sure?", method: :delete
 - unless @team.users.include? current_user
   = link_to "Join this team", team_join_path(@team)
+- else
+  - unless @team.captain.id == current_user.id
+    = link_to "Leave team", user_team_path(current_user, @team), confirm: "Are you sure?", method: :delete

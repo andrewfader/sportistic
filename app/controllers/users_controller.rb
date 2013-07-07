@@ -7,14 +7,20 @@ class UsersController < InheritedResources::Base
 
   def approve
     if @user = User.find_by_id(params[:user_id])
-      if team = Team.associate(@user, current_user.id)
-        flash[:notice] = "#{@user.name}'s request to join #{team.name} was approved"
-        UserMailer.approval_notice(@user, team).deliver
-        path = team_path(team)
+      if @team = Team.find_by_id(params[:team_id])
+        if current_user == @team.captain
+          @team.associate(@user)
+          flash[:notice] = "#{@user.name}'s request to join #{@team.name} was approved"
+          UserMailer.approval_notice(@user, @team).deliver
+          path = team_path(@team)
+        else
+          flash[:alert] = "You are not the captain of #{@team.name}"
+          path = team_path(@team)
+        end
       end
-      path = user_path(@user)
+      path ||= user_path(@user)
     end
-    path = "/"
+    path ||= "/"
     redirect_to path
   end
 

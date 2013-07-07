@@ -1,9 +1,9 @@
 class Team < ActiveRecord::Base
   include Availability
-  has_many :user_teams
+  has_many :user_teams, dependent: :destroy
   has_many :users, through: :user_teams
-  has_many :players
-  has_many :games
+  has_many :players, dependent: :destroy
+  has_many :games, dependent: :destroy
   accepts_nested_attributes_for :players
   belongs_to :captain, class_name: User
   serialize :availability
@@ -28,7 +28,7 @@ class Team < ActiveRecord::Base
   end
 
   def self.associate(user, captain_id, membership=true)
-    if (team = Team.where(captain_id: captain_id).try(:first))
+    if (team = Team.where(captain_id: captain_id).try(:last))
       team.associate(user, membership)
     end
   end

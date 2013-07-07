@@ -8,13 +8,27 @@ class TeamsController < InheritedResources::Base
 
   def create
     super
-    @team.users << current_user
+    @team.associate(current_user)
   end
 
   def join
     if (@team = Team.find_by_id(params[:team_id]))
       UserMailer.join_request(current_user, @team).deliver
       @team.associate(current_user, false)
+    end
+    flash[:notice] = "A request to join this team has been sent to #{@team.captain.name}"
+    redirect_to team_path(@team)
+  end
+
+  def destroy
+    if params[:user_id]
+      user_team = UserTeam.where(user_id: params[:user_id], team_id: params[:id]).first
+      team = user_team.team
+      user_team.destroy
+      flash[:notice] = "You are no longer a member of #{team.name}"
+      redirect_to team_path(team)
+    else
+      super
     end
   end
 
