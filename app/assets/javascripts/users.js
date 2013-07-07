@@ -12,5 +12,7 @@ function readyUp() {
     height: 1000,
   })
 
-  $('.ui-date-picker').datetimepicker();
+  $('.ui-date-picker').datetimepicker(
+    { dateFormat: 'dd-M-yy' }
+  );
 }
