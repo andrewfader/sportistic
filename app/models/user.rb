@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
                   soccer: ["Goalie","Defense","Midfield","Forward"],
                   softball: ["Pitcher","Catcher","1B","2B","3B","Outfield"],
                   kickball: ["Pitcher","Catcher","1B","2B","3B","Outfield"] }
-    Array(sports).map do |sport|
+    Array.wrap(sports).map do |sport|
       sport = sport.downcase.to_sym
       positions[sport]
     end.flatten.uniq
@@ -41,10 +41,10 @@ class User < ActiveRecord::Base
   end
 
   def sports
-    super ? super.map(&:presence).compact : []
+    super ? Array.wrap(super).map(&:presence).compact : []
   end
 
   def position
-    super ? super.map(&:presence).compact : []
+    super ? Array.wrap(super).map(&:presence).compact : []
   end
 end
