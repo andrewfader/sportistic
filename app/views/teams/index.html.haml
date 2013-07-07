@@ -1,8 +1,9 @@
-- [[@matching_teams, "#{current_user.availability.to_sentence} #{current_user.sports.to_sentence}"], [current_user.member_teams, "My Teams"], [Team.where(captain_id: current_user.id).to_a, "Captainships"]].each do |teams, caption|
-  - if teams.present?
-    %h2=caption
-    .team_list
-      = render "list", teams: teams
+- if current_user
+  - [[@matching_teams, "#{current_user.availability.to_sentence} #{current_user.sports.to_sentence}"], [current_user.member_teams, "My Teams"], [Team.where(captain_id: current_user.id).to_a, "Captainships"]].each do |teams, caption|
+    - if teams.present?
+      %h2=caption
+      .team_list
+        = render "list", teams: teams
 
 %h2 All Teams
 %table.datatable
