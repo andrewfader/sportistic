@@ -30,7 +30,7 @@ class UsersController < InheritedResources::Base
     if team_id = params["user"]["team_ids"]
       if team = Team.find_by_id(team_id.to_i)
         if !@user.teams.include? team
-          UserMailer.join_request(current_user, @team).deliver
+          UserMailer.join_request(current_user, team).deliver
           team.associate(@user, false)
         end
       end
