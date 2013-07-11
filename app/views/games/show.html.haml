@@ -6,4 +6,5 @@
 %h3 #{@game.start} to #{@game.end}
 .players
   = render "users/list", users: @game.users
-= link_to "Play in this game", game_join_path(@game)
+- unless @game.users.include? current_user
+  = link_to "Play in this game", game_join_path(@game)
