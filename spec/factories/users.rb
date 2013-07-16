@@ -8,6 +8,7 @@ FactoryGirl.define do
     name Faker::Name.name
     sports ['Baseball']
     city Faker::Address.city
+    state Faker::Address.us_state
     gender 'Male'
   end
 end

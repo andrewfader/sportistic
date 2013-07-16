@@ -55,7 +55,7 @@ class InvitationsController < Devise::InvitationsController
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:accept_invitation) do |u|
-      u.permit(:name, :email, :invitation_token, :name, :gender, :city, {sports: []}, :user_id, :password, :password_confirmation)
+      u.permit(:name, :email, :invitation_token, :name, :gender, :city, {sports: []}, :state, :user_id, :password, :password_confirmation)
     end
 
     devise_parameter_sanitizer.for(:invite) do |u|
