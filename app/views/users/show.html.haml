@@ -1,4 +1,10 @@
 %h2.name= @user.name
+- unless @user.id == current_user.id
+  - if (captainships = Team.where(captain_id: current_user.id).to_a).present?
+    - captainships.each do |team|
+      %form{action: user_invitation_path(user_id: @user.id, invited_to_id: team.id), method: :post}
+        %input{type: :submit, value: "Invite #{@user.name} to #{team.name}"}
+        %input{type: :hidden, value: form_authenticity_token, name: "authenticity_token"}
 .image= image_tag(@user.photo.small.url)
 .bio
   %h3 Personal Info

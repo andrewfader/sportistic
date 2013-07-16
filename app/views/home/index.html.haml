@@ -1,5 +1,5 @@
 %h3 Recent Players
-= render "users/list", users: User.all.last(5)
+= render "users/list", users: User.where(privacy_toggle: true).last(5)
 %h3 Recent Teams
 = render "teams/list", teams: Team.all.last(5)
 %h3=link_to "Create Team", new_team_path if can? :create, Team

@@ -2,8 +2,8 @@
 = simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f|
   = devise_error_messages!
   = f.hidden_field :invitation_token
-  = f.input :fullname, label: "Name"
-  = f.input :gender, as: :radio, collection: ["Male","Female"]
+  = f.input :name
+  = f.input :gender, as: :radio_buttons, collection: ["Male","Female"]
   = f.input :city
   = f.input :sports, as: :check_boxes, collection: ["Basketball", "Baseball", "Kickball", "Soccer", "Softball"]
   = f.input :password
