@@ -15,6 +15,7 @@ function readyUp() {
   $('.ui-date-picker').datetimepicker(
     { dateFormat: 'dd-M-yy' }
   );
+  $('a').button();
 
   $('input[data-autocomplete]').railsAutocomplete();
   $('#user_city').suggest({key: 'AIzaSyBZ1M9CIeCufVkulo1zYFtJ-xZsYJD81sM', filter:'(all type:/location/citytown)', flyout: false});
