@@ -1,5 +1,6 @@
-- users.each do |user|
-  - if user.photo.thumb.url.present?
-    = link_to "#{image_tag(user.photo.thumb.url, title: user.name, alt: user.name)}<div class='thumb_name'>#{user.name}</div>".html_safe, user_path(user)
-  - else
-    = link_to user.name, user_path(user)
+.object_list
+  - users.each do |user|
+    - if user.photo.thumb.url.present?
+      = link_to "#{image_tag(user.photo.thumb.url, title: user.name, alt: user.name)}<div class='thumb_name'>#{user.name}</div>".html_safe, user_path(user)
+    - else
+      = link_to user.name, user_path(user)
