@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20130727232102) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "games", force: true do |t|
     t.string   "title"
     t.datetime "start"
