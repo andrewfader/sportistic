@@ -1,5 +1,5 @@
 %h2.name= @user.name
-- unless @user.id == current_user.id
+- if current_user && !(@user.id == current_user.id)
   - if (captainships = Team.where(captain_id: current_user.id).to_a).present?
     - captainships.each do |team|
       - unless team.users.include? @user
