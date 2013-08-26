@@ -1,5 +1,5 @@
 - if current_user
-  - [[@matching_teams, "#{current_user.availability.to_sentence} #{current_user.sports.to_sentence}"], [current_user.member_teams, "My Teams"], [Team.where(captain_id: current_user.id).to_a, "Captainships"]].each do |teams, caption|
+  - [[@matching_teams, "#{current_user.availability.to_sentence} #{current_user.sports_names.to_sentence}"], [current_user.member_teams, "My Teams"], [Team.where(captain_id: current_user.id).to_a, "Captainships"]].each do |teams, caption|
     - if teams.present?
       %h2=caption
       .team_list

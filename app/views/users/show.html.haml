@@ -27,8 +27,8 @@
       %h4 Pending Teams
       = render 'teams/list', teams: @user.pending_teams
   %p
-  .sport Sports: #{@user.sports.to_sentence}
-  .position Position: #{@user.position.to_sentence}
+  .sport Sports: #{@user.sports_names.to_sentence}
+  .position Position: #{@user.user_sports.map(&:position).to_sentence}
   .experience_level Experience Level: #{@user.experience_level}
   .availability Availability: #{@user.availability.to_sentence}
   .distance_to_travel Distance Willing to Travel: #{@user.distance_to_travel}

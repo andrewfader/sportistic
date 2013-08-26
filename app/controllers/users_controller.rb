@@ -4,6 +4,11 @@ class UsersController < InheritedResources::Base
   autocomplete :team, :name
   skip_authorize_resource only: :autocomplete_team_name
 
+  def edit
+    super
+    @user.user_sports.build
+  end
+
   def approve
     if @user = User.find_by_id(params[:user_id])
       if @team = Team.find_by_id(params[:team_id])
@@ -35,12 +40,17 @@ class UsersController < InheritedResources::Base
       end
     end
     params["user"].delete("team_ids")
+    params["user"]["user_sports_attributes"].each do |k,v|
+      params["user"]["user_sports_attributes"][k]["position"] = v["position"].map(&:presence).compact
+    end
+
     super
   end
 
   private
 
   def permitted_params
-    params.permit(user: [{sports: []}, {availability: []}, :experience_level, :distance_to_travel, :desire_to_join, :privacy_toggle, {position: []}, :team_ids, {teams: []}])
+    params.permit(user: [{user_sports_attributes: [:id, :sport_id, {position: []}]}, {availability: []}, :experience_level, :distance_to_travel, :desire_to_join, :privacy_toggle, :team_ids, {teams: []}])
+
   end
 end

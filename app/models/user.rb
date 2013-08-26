@@ -11,26 +11,15 @@ class User < ActiveRecord::Base
   has_many :user_games
   has_many :games, through: :user_games
 
+  has_many :user_sports
+  has_many :sports, through: :user_sports
+
   serialize :availability
-  serialize :sports
-  serialize :position
-  validates_presence_of :name, :email, :sports, :city, :gender
+  validates_presence_of :name, :email, :city, :gender
 
   mount_uploader :photo, ::PhotoUploader
 
-  accepts_nested_attributes_for :teams
-
-  def self.possible_positions(sports)
-    positions = { baseball: ["Pitcher","Catcher","1B","2B","3B","Outfield"],
-                  basketball: ["Guard","Forward","Center"],
-                  soccer: ["Goalie","Defense","Midfield","Forward"],
-                  softball: ["Pitcher","Catcher","1B","2B","3B","Outfield"],
-                  kickball: ["Pitcher","Catcher","1B","2B","3B","Outfield"] }
-    Array.wrap(sports).map do |sport|
-      sport = sport.downcase.to_sym
-      positions[sport]
-    end.flatten.uniq
-  end
+  accepts_nested_attributes_for :user_sports
 
   def member_teams
     user_teams.where(membership: true).map(&:team)
@@ -40,11 +29,7 @@ class User < ActiveRecord::Base
     user_teams.where(membership: false).map(&:team)
   end
 
-  def sports
-    super ? Array.wrap(super).map(&:presence).compact : []
-  end
-
-  def position
-    super ? Array.wrap(super).map(&:presence).compact : []
+  def sports_names
+    user_sports.map(&:sport).map(&:name)
   end
 end

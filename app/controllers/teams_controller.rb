@@ -35,6 +35,6 @@ class TeamsController < InheritedResources::Base
   private
 
   def permitted_params
-    params.permit(team: [:name, :location, :sport, :league_name, :league_url, :location, :captain_id, :experience_level, :bio, :achievements, :photo, :team_type, :year_founded, :availability, photos_attributes: ['title', 'image', '_destroy'], players_attributes: [:name]])
+    params.permit(team: [:name, :location, :sport, :league_name, :league_url, :location, :captain_id, :experience_level, :bio, :achievements, :photo, :team_type, :year_founded, {availability: []}, photos_attributes: ['title', 'image', '_destroy'], players_attributes: [:name]])
   end
 end

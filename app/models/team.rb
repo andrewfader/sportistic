@@ -13,7 +13,7 @@ class Team < ActiveRecord::Base
 
   def self.matching(user)
     Team.select do |team|
-      user.sports.any? do |sport|
+      user.sports_names.any? do |sport|
         team.sport == sport
       end.present? && (team.availability & user.availability).present?
     end

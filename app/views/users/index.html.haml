@@ -15,8 +15,8 @@
       %td=link_to user.name, user_path(user)
       %td=user.gender
       %td=user.city
-      %td=user.sports.to_sentence
-      %td=user.position.to_sentence
+      %td=user.sports_names.to_sentence
+      %td=user.user_sports.map(&:position).to_sentence
       %td=user.experience_level
       %td=user.distance_to_travel
       %td=user.desire_to_join ? "Yes" : "No"

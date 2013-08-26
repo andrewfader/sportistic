@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130727232102) do
+ActiveRecord::Schema.define(version: 20130818235023) do
 
   create_table "games", force: true do |t|
     t.string   "title"
@@ -60,6 +60,12 @@ ActiveRecord::Schema.define(version: 20130727232102) do
     t.integer "game_id"
   end
 
+  create_table "user_sports", force: true do |t|
+    t.integer "user_id"
+    t.string  "position"
+    t.integer "sport_id"
+  end
+
   create_table "user_teams", force: true do |t|
     t.integer "team_id"
     t.integer "user_id"
@@ -82,7 +88,6 @@ ActiveRecord::Schema.define(version: 20130727232102) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "sports"
     t.string   "name"
     t.string   "gender"
     t.boolean  "privacy_toggle"
@@ -95,7 +100,6 @@ ActiveRecord::Schema.define(version: 20130727232102) do
     t.boolean  "desire_to_join"
     t.string   "distance_to_travel"
     t.string   "availability"
-    t.string   "position"
     t.string   "invitation_token",       limit: 60
     t.datetime "invitation_sent_at"
     t.datetime "invitation_accepted_at"

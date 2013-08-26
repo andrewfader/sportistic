@@ -1,10 +1,10 @@
 = simple_form_for @user do |f|
   %p.sports
     %p
-      = f.input :sports, as: :check_boxes, collection: ["Basketball", "Baseball", "Kickball", "Soccer", "Softball"]
-    - if @user.sports.present?
-      %p
-        = f.input :position, as: :check_boxes, collection: User.possible_positions(@user.sports)
+      = f.simple_fields_for :user_sports do |g|
+        = g.object.sport.name
+        = g.input :sport_id, as: :hidden
+        = g.input :position, collection: g.object.sport.positions, as: :check_boxes, include_hidden: false, include_blank: false
     %p
       = f.input :experience_level, as: :radio_buttons, collection: ["Beginner","Intermediate","Advanced","Awesome"]
     %p

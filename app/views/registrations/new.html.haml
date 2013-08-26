@@ -3,7 +3,8 @@
   = f.error_notification
   .inputs
     = render "users/form", f: f
-    = f.input :sports, as: :check_boxes, collection: ["Basketball", "Baseball", "Kickball", "Soccer", "Softball"]
+    = f.simple_fields_for :user_sports_attributes do |f|
+      = f.input :sport_id, collection: Sport.all, as: :check_boxes, include_blank: false
     = f.input :password, :required => true
     = f.input :password_confirmation, :required => true
   .actions

@@ -1,6 +1,7 @@
 ruby '2.0.0'
 source 'https://rubygems.org'
 
+gem 'active_hash'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'cancan'
