@@ -1,6 +1,11 @@
+%h2 Send Email to #{@team.name}
 = form_tag action: :send_email, team_id: @team.id do
-  - @team.users.each do |user|
-    = check_box_tag "user_ids[]", user.id
-    %label= user.name
-  = text_area :email, :body
-  = submit_tag "Send email"
+  %p.recipients
+    - @team.users.each do |user|
+      .inline_box
+        = check_box_tag "user_ids[]", user.id
+        %label= user.name
+  %p.text
+    = text_area :email, :body
+  .submit
+    = submit_tag "Send email"
