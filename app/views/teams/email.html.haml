@@ -1,0 +1,6 @@
+= form_tag action: :send_email, team_id: @team.id do
+  - @team.users.each do |user|
+    = check_box_tag "user_ids[]", user.id
+    %label= user.name
+  = text_area :email, :body
+  = submit_tag "Send email"

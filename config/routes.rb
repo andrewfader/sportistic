@@ -10,6 +10,8 @@ Sportistic::Application.routes.draw do
     resources :players, except: [:destroy]
     resources :games, except: [:destroy]
     get 'join'
+    get :email
+    post :send_email
   end
   resources :games do
     get 'join'

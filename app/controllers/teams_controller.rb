@@ -32,6 +32,18 @@ class TeamsController < InheritedResources::Base
     end
   end
 
+  def email
+    @team = Team.find(params[:team_id])
+  end
+
+  def send_email
+    team = Team.find(params[:team_id])
+    users = params["user_ids"].map { |id| User.find(id) }
+    UserMailer.team_message(users, team, params["email"]["body"]).deliver
+    flash[:notice] = "Email sent to #{users.map(&:name).to_sentence}"
+    redirect_to team_path(team)
+  end
+
   private
 
   def permitted_params

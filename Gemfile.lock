@@ -7,17 +7,6 @@ GIT
       responders (~> 1.0.0.rc)
 
 GIT
-  remote: git://github.com/plataformatec/devise.git
-  revision: 3232d14b20da4a596f2c0ff31b8a9ac0a529322e
-  specs:
-    devise (3.1.0.rc2)
-      bcrypt-ruby (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
-      thread_safe (~> 0.1)
-      warden (~> 1.2.3)
-
-GIT
   remote: git://github.com/plataformatec/simple_form.git
   revision: 359606f222fa0972a4a14ec70140ac00f7c80839
   specs:
@@ -34,12 +23,12 @@ GIT
 
 GIT
   remote: git://github.com/scambra/devise_invitable.git
-  revision: c10e827341cfbf2ebccd5d405a8221159228aa37
-  branch: devise-3.1
+  revision: 8e49fdd5d01c5d34b75edc915e2b3a483cae82cf
+  ref: 8e49fdd5d01c5d34b75edc915e2b3a483cae82cf
   specs:
-    devise_invitable (1.2.0)
+    devise_invitable (1.1.8)
       actionmailer (>= 3.2.6, < 5)
-      devise (>= 3.1.0.rc2)
+      devise (>= 3.0.0.rc)
 
 GEM
   remote: https://rubygems.org/
@@ -125,6 +114,11 @@ GEM
       debugger-ruby_core_source (~> 1.2.3)
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.2.3)
+    devise (3.0.0)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      warden (~> 1.2.3)
     diff-lcs (1.2.4)
     diffy (3.0.1)
     erubis (2.7.0)
@@ -334,7 +328,7 @@ DEPENDENCIES
   cucumber-websteps
   database_cleaner
   debugger
-  devise!
+  devise (= 3.0)
   devise_invitable!
   factory_girl_rails
   ffaker

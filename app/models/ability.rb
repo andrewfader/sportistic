@@ -9,7 +9,7 @@ class Ability
       can :approve, User
       can :create, Player
     end
-    can [:edit, :update], Team do |team|
+    can [:edit, :update, :email, :send_email], Team do |team|
       team.captain_id == user.id
     end
     can [:edit, :update], User do |luser|

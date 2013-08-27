@@ -1,6 +1,6 @@
 class InvitationsController < Devise::InvitationsController
+  prepend_before_filter :configure_permitted_parameters
   prepend_before_filter :check_for_existing_user, only: [:edit, :update, :destroy]
-  before_filter :configure_permitted_parameters
 
   def after_accept_path_for(user)
     team_path(Team.associate(user, user.invited_by_id))
@@ -25,7 +25,7 @@ class InvitationsController < Devise::InvitationsController
       if params[:user_id]
         set_flash_message :notice, :send_instructions, :email => self.resource.name
       else
-        set_flash_message :notice, :send_instructions, :email => self.resource.email
+        set_flash_message :notice, :send_instructions, :email => self.resource.email if self.resource.invitation_sent_at
       end
       respond_with resource, :location => after_invite_path_for(resource)
     else
