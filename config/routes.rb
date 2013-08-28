@@ -5,8 +5,9 @@ Sportistic::Application.routes.draw do
     get 'approve'
     resources :teams, only: [:destroy]
     get :autocomplete_team_name, on: :collection
-    resources :user_sports
   end
+  resources :user_sports
+  resources :sports, only: :index
   resources :teams do
     resources :players, except: [:destroy]
     resources :games, except: [:destroy]

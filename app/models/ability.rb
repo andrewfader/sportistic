@@ -8,6 +8,7 @@ class Ability
       can [:new, :create, :edit, :update, :join], Game
       can :approve, User
       can :create, Player
+      can [:new, :index, :create, :destroy], UserSport
     end
     can [:edit, :update, :email, :send_email], Team do |team|
       team.captain_id == user.id
