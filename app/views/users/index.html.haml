@@ -4,8 +4,7 @@
       %th Name
       %th Gender
       %th City
-      %th Sport
-      %th Position
+      %th Sports and Positions
       %th Experience Level
       %th Distance Willing to Travel
       %th Looking for a Team?
@@ -15,8 +14,12 @@
       %td=link_to user.name, user_path(user)
       %td=user.gender
       %td=user.city
-      %td=user.sports.map(&:name).to_sentence
-      %td=user.user_sports.map(&:position).to_sentence
+      %td
+        %table
+          - user.user_sports.each do |user_sport|
+            %tr
+              %td= image_tag "/assets/#{user_sport.sport.name.downcase}.png", width: 25, height: 25
+              %td #{user_sport.sport.name}#{user_sport.position.present? ? ", positions: #{user_sport.position.try(:flatten).try(:to_sentence)}" : ""}
       %td=user.experience_level
       %td=user.distance_to_travel
       %td=user.desire_to_join ? "Yes" : "No"

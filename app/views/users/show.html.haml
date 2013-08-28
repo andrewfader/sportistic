@@ -27,8 +27,11 @@
       %h4 Pending Teams
       = render 'teams/list', teams: @user.pending_teams
   %p
-  .sport Sports: #{@user.sports.map(&:name).to_sentence}
-  .position Position: #{@user.user_sports.map(&:position).flatten.to_sentence}
+    %table
+      - @user.user_sports.each do |user_sport|
+        %tr
+          %td= image_tag "/assets/#{user_sport.sport.name.downcase}.png", width: 25, height: 25
+          %td #{user_sport.sport.name}#{user_sport.position.present? ? ", positions: #{user_sport.position.try(:flatten).try(:to_sentence)}" : ""}
   .experience_level Experience Level: #{@user.experience_level}
   .availability Availability: #{@user.availability.to_sentence}
   .distance_to_travel Distance Willing to Travel: #{@user.distance_to_travel}
