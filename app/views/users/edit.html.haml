@@ -1,17 +1,19 @@
-= simple_form_for @user do |f|
+%h2 Edit Athletic Info
+(profile will automatically update when you make changes)
+= simple_form_for @user, remote: true do |f|
   %p.sports
     %p.sports_picker
       .inline_box
         - Sport.all.map(&:name).each do |sport|
           %div{id: "sport_#{sport}"}
             = link_to "#{image_tag("/assets/#{sport.downcase}.png")}<br><span class='sports_picker'>#{sport}</span>".html_safe, "#", class: 'pick_sport', id:"#{sport}", "data-selected" => false
-
-    %p
-      = f.simple_fields_for :user_sports do |g|
-        %p
-          = g.object.sport.name
-          = g.input :sport_id, as: :hidden
-          = g.input :position, collection: g.object.sport.positions, as: :check_boxes, include_hidden: false, include_blank: false
+      %ul.position_chooser
+        = f.simple_fields_for :user_sports do |g|
+          %li
+            %b= g.object.sport.name
+            %p
+              = g.input :sport_id, as: :hidden
+              = g.input :position, collection: g.object.sport.positions, as: :check_boxes, include_hidden: false, include_blank: false
     %p
       = f.input :experience_level, as: :radio_buttons, collection: ["Beginner","Intermediate","Advanced","Awesome"]
     %p
@@ -27,5 +29,4 @@
     .inline_box
       = f.label "Allow others to contact me"
       = f.input :privacy_toggle, label: false, as: :boolean
-
-  = f.submit "Update Profile"
+  = link_to "View Updated Profile", '.'

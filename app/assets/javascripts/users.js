@@ -90,4 +90,9 @@ function readyUp() {
       event.preventDefault();
     });
   }
+
+  $('form.edit_user').change(function() {
+    $(this).submit();
+  }
+  )
 }

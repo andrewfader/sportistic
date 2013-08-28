@@ -7,7 +7,7 @@
 .year Year Founded: #{@team.year_founded}
 .experience_level Experience Level: #{@team.experience_level}
 .achievements Achievements: #{@team.achievements}
-.availability Availability: #{@team.availability.to_sentence}
+.availability Games Played: #{@team.availability.to_sentence}
 - if @team.league_url
   .league League: #{link_to @team.league_name, @team.league_url}
 - if @team.games.present?

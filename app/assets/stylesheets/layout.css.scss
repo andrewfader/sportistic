@@ -72,3 +72,16 @@ textarea#email_body {
   width: 60%;
   height: 400px;
 }
+ul.position_chooser {
+  margin: 0;
+  padding: 20px;
+  li, input {
+    display: inline-block;
+  }
+  li {
+    padding: 0;
+    margin: 0 20px 0 0;
+    width: 100px;
+  }
+  list-style-type: none;
+}
