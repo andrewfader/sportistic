@@ -17,7 +17,7 @@
   - Team.all.each do |team|
     %tr
       %td=link_to team.name, team_path(team)
-      %td=team.sports.to_sentence
+      %td=team.sports.map(&:name).to_sentence
       %td=team.location
       %td=team.experience_level
       %td=team.availability.to_sentence
