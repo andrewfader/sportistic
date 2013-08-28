@@ -1,5 +1,6 @@
 Feature: User signup, login, and profile
 
+  @javascript
   Scenario: Signup, edit profile, and logout
     When I go to the home page
     And I follow "Join"
@@ -16,7 +17,6 @@ Feature: User signup, login, and profile
 
     When I choose "Awesome"
     And I check "Forward"
-    And I press "Update"
     And I follow "Profile"
     Then I should see "Michael Phelps"
     And I should see "NYC"
