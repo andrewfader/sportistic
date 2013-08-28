@@ -2,23 +2,26 @@ require 'spec_helper'
 describe Team do
   describe '.matching' do
     it 'matches on sports but not availability' do
-      FactoryGirl.create(:team, sport: "Baseball", availability: [1,3])
+      team = FactoryGirl.create(:team, availability: [1,3])
       user = FactoryGirl.create(:user, availability: [2,4])
       user.user_sports << UserSport.new(sport: Sport.find_by_name("Baseball"))
+      team.team_sports << TeamSport.new(sport: Sport.find_by_name("Baseball"))
       Team.matching(User.last).should == []
     end
 
     it 'matches on availability but not sports' do
-      FactoryGirl.create(:team, sport: "Basketball", availability: [1,2,3])
+      team = FactoryGirl.create(:team, availability: [1,2,3])
       user = FactoryGirl.create(:user, availability: [1,2,3])
       user.user_sports << UserSport.new(sport: Sport.find_by_name("Baseball"))
+      team.team_sports << TeamSport.new(sport: Sport.find_by_name("Basketball"))
       Team.matching(User.last).should == []
     end
 
     it 'matches on both' do
-      FactoryGirl.create(:team, sport: "Baseball", availability: [0,1,4])
+      team = FactoryGirl.create(:team, availability: [0,1,4])
       user = FactoryGirl.create(:user, availability: [0,1,4])
       user.user_sports << UserSport.new(sport: Sport.find_by_name("Baseball"))
+      team.team_sports << TeamSport.new(sport: Sport.find_by_name("Baseball"))
       Team.matching(User.last).should == [Team.last]
     end
   end

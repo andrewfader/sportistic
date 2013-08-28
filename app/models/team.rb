@@ -7,15 +7,22 @@ class Team < ActiveRecord::Base
   accepts_nested_attributes_for :players
   belongs_to :captain, class_name: User
   serialize :availability
-  validates_presence_of :name, :location, :sport
+  validates_presence_of :name, :location
+
+  has_many :team_sports
+  has_many :sports, through: :team_sports
+  accepts_nested_attributes_for :team_sports
 
   mount_uploader :photo, ::PhotoUploader
 
+  def sports
+    team_sports.map(&:sport)
+  end
+
   def self.matching(user)
     Team.select do |team|
-      user.sports_names.any? do |sport|
-        team.sport == sport
-      end.present? && (team.availability & user.availability).present?
+      (team.sports & user.sports).present? &&
+        (team.availability & user.availability).present?
     end
   end
 

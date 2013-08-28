@@ -21,15 +21,15 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :user_sports
 
+  def sports
+    user_sports.map(&:sport)
+  end
+
   def member_teams
     user_teams.where(membership: true).map(&:team)
   end
 
   def pending_teams
     user_teams.where(membership: false).map(&:team)
-  end
-
-  def sports_names
-    user_sports.map(&:sport).map(&:name)
   end
 end

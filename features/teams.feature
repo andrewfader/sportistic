@@ -19,3 +19,9 @@ Feature: Teams
     And I should see "Beginner"
     And I should see "MLB"
     And I should see "1996"
+
+  Scenario: Matching teams
+    Given a logged in user
+    When I go to the home page
+    And I follow "Profile"
+    And I follow "Edit my athletic info"

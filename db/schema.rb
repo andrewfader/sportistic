@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130826235818) do
+ActiveRecord::Schema.define(version: 20130828024107) do
 
   create_table "games", force: true do |t|
     t.string   "title"
@@ -31,11 +31,24 @@ ActiveRecord::Schema.define(version: 20130826235818) do
     t.datetime "updated_at"
   end
 
+  create_table "sports", force: true do |t|
+    t.string   "name"
+    t.string   "positions"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "team_sports", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "sport_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "teams", force: true do |t|
     t.string   "name"
     t.string   "location"
     t.integer  "captain_id"
-    t.string   "sport"
     t.integer  "league_id"
     t.boolean  "external_league"
     t.string   "league_name"
@@ -100,7 +113,6 @@ ActiveRecord::Schema.define(version: 20130826235818) do
     t.boolean  "desire_to_join"
     t.string   "distance_to_travel"
     t.string   "availability"
-    t.string   "invitation_token",       limit: 60
     t.datetime "invitation_sent_at"
     t.datetime "invitation_accepted_at"
     t.integer  "invitation_limit"
@@ -108,10 +120,11 @@ ActiveRecord::Schema.define(version: 20130826235818) do
     t.string   "invited_by_type"
     t.integer  "invited_to_id"
     t.string   "state"
+    t.datetime "invitation_created_at"
+    t.string   "invitation_token",       limit: 60
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
   add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 

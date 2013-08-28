@@ -11,6 +11,11 @@ class TeamsController < InheritedResources::Base
     @team.associate(current_user)
   end
 
+  def new
+    @team.team_sports.build
+    super
+  end
+
   def join
     if (@team = Team.find_by_id(params[:team_id]))
       UserMailer.join_request(current_user, @team).deliver
@@ -47,6 +52,6 @@ class TeamsController < InheritedResources::Base
   private
 
   def permitted_params
-    params.permit(team: [:name, :location, :sport, :league_name, :league_url, :location, :captain_id, :experience_level, :bio, :achievements, :photo, :team_type, :year_founded, {availability: []}, photos_attributes: ['title', 'image', '_destroy'], players_attributes: [:name]])
+    params.permit(team: [:name, :location, :sport, :league_name, :league_url, :location, :captain_id, :experience_level, :bio, :achievements, :photo, :team_type, :year_founded, {availability: []}, {photos_attributes: ['title', 'image', '_destroy']}, {players_attributes: [:name]}, {team_sports_attributes: [:sport_id]}])
   end
 end

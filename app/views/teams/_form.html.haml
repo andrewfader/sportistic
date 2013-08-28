@@ -5,7 +5,8 @@
   = f.input :photo
   %p
     = f.input :experience_level, as: :radio_buttons, collection: ["Beginner","Intermediate","Advanced","Awesome"]
-  = f.input :sport, label: "Sport", as: :radio_buttons, collection: ["Basketball", "Baseball", "Kickball", "Soccer", "Softball"]
+  = f.simple_fields_for :team_sports do |g|
+    = g.input :sport_id, label: "Sport", collection: Sport.all, as: :check_boxes, include_blank: false,as: :radio_buttons
   = f.input :league_name
   = f.input :league_url
   = f.input :team_type
