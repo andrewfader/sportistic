@@ -1,5 +1,5 @@
 %p We are Sportistic - the place where teams and athletes meet. Our beta product allows you to find and join teams in a variety of sports.
-%p You've received this e-mail because #{@team.captain.name} has invited you to join #{@team.name}, a #{@team.sport} team playing in #{@team.location}. You can accept it through the link below.
+%p You've received this e-mail because #{@team.captain.name} has invited you to join #{@team.name}, a #{@team.sports.map(&:name).to_sentence} team playing in #{@team.location}. You can accept it through the link below.
 %p= link_to 'Accept invitation', accept_invitation_url(@resource, :invitation_token => @resource.invitation_token)
 %p If you don't want to accept the invitation, please ignore this email. Your account won't be created until you access the link above and set your password.
 %p For more information about Sportistic, #{link_to "click here", "http://www.playsportistic.com/about"}
