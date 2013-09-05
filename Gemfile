@@ -15,20 +15,19 @@ gem 'haml'
 gem 'html2haml'
 gem 'inherited_resources', github: 'josevalim/inherited_resources'
 gem 'jbuilder', '~> 1.0.1'
-gem 'jquery-rails'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
-gem 'rails3-jquery-autocomplete'
-gem 'ui_datepicker-rails3'
+gem 'jquery-rails'
 gem 'letter_opener', group: :development
+gem 'mini_magick'
 gem 'pg'
 gem 'rails_12factor', group: :production
+gem 'rails3-jquery-autocomplete'
 gem 'rails', '~> 4.0.0'
-gem 'mini_magick'
 gem 'sass-rails'
 gem 'simple_form', github: 'plataformatec/simple_form'
-# gem 'therubyracer', platforms: :ruby
-gem 'turbolinks'
+gem 'turbolinks', github: 'rails/turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'ui_datepicker-rails3', github: 'kristianmandrup/ui_datepicker-rails3'
 gem 'unicorn'
 
 group :doc do
@@ -47,5 +46,5 @@ group :test do
   gem 'cucumber-websteps'
   gem 'database_cleaner'
   gem 'rspec-rails'
-  gem 'selenium-webdriver'
+  gem 'poltergeist'
 end
