@@ -16,12 +16,16 @@ Feature: User signup, login, and profile
     Then I should see "Welcome! You have signed up successfully."
 
     When I choose "Awesome"
+    And I wait for the request to finish
     And I check "Forward"
-    And I follow "Profile"
+    And I wait for the request to finish
+    And I follow "View Updated Profile"
     Then I should see "Michael Phelps"
     And I should see "NYC"
     And I should see "Wisconsin"
     And I should see "Basketball"
+    And I should not see "Baseball"
+    And I should not see "Softball"
     And I should see "Awesome"
     And I should see "Forward"
 

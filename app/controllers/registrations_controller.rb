@@ -8,7 +8,7 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     sport_ids = params["user"].delete("user_sports_attributes")["sport_id"]
     build_resource(sign_up_params)
-    sport_ids.map(&:to_i).compact.each do |sport_id|
+    sport_ids.map(&:presence).compact.map(&:to_i).uniq.each do |sport_id|
       sport = Sport.find(sport_id)
       resource.user_sports << UserSport.new(sport_id: sport_id, user_id: @user.id)
     end

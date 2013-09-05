@@ -4,11 +4,6 @@ class UsersController < InheritedResources::Base
   autocomplete :team, :name
   skip_authorize_resource only: :autocomplete_team_name
 
-  def edit
-    super
-    @user.user_sports.build
-  end
-
   def approve
     if @user = User.find_by_id(params[:user_id])
       if @team = Team.find_by_id(params[:team_id])
