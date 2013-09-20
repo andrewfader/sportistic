@@ -19,8 +19,10 @@
     %tr
       %td= link_to "#{image_tag(team.photo.thumb.url, title: team.name, alt: team.name)}<div class='thumb_name'>#{team.name}</div>".html_safe, team_path(team)
       %td
-        - team.sports.map(&:name).map(&:downcase).each do |sport|
-          = image_tag "#{sport}.png", title: sport, alt: sport
+        - team.sports.map(&:name).each do |sport|
+          = image_tag "#{sport.downcase}.png", title: sport, alt: sport
+          %br
+          =sport
       %td=team.location
       %td=team.experience_level
       %td=team.availability.to_sentence.gsub("Monday","Mon").gsub("Tuesday","Tues").gsub("Wednesday","Wed").gsub("Thursday","Thurs").gsub("Friday","Fri").gsub("Saturday","Sat").gsub("Sunday","Sun").gsub("morning","AM").gsub("night","PM").gsub("evening","PM")
