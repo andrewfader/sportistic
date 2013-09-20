@@ -47,4 +47,8 @@ class Team < ActiveRecord::Base
   def pending_users
     user_teams.where(membership: false).map(&:user)
   end
+
+  def icon
+    sports.present? ? "/assets/#{sports.first.name.downcase}.png" : nil
+  end
 end

@@ -1,8 +1,8 @@
 %h2=@game.title
-- if @game.team.photo.small.url
-  = link_to image_tag(@game.team.photo.small.url, {title: @game.team.name, alt: @game.team.name}), team_path(@game.team)
+- if @game.team.photo.url != @game.team.photo.default_url
+  = link_to "#{image_tag(@game.team.photo.small.url, {title: @game.team.name, alt: @game.team.name})}#{@game.team.icon ? image_tag(@game.team.icon, title: @game.team.sports.first.name, width: 48, height: 48) : ''}".html_safe, team_path(@game.team)
 - else
-  = link_to @game.team.name, team_path(@game.team)
+  = link_to "#{@game.team.name} #{@game.team.icon ? image_tag(@game.team.icon, title: @game.team.sports.first.name, width: 25, height: 25) : ''}".html_safe, team_path(@game.team)
 %h3 #{@game.start} to #{@game.end}
 .players
   = render "users/list", users: @game.users

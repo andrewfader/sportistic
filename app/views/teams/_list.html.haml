@@ -1,6 +1,7 @@
 .object_list
   - teams.each do |team|
     - if team.photo.thumb.url.present?
-      = link_to "#{image_tag(team.photo.thumb.url, title: team.name, alt: team.name)}<div class='thumb_name'>#{team.name}</div>".html_safe, team_path(team)
+      = link_to "#{image_tag(team.photo.thumb.url, title: team.name, alt: team.name)}<div class='inline_box'><div class='thumb_name'>#{team.name}</div><div class='icon'>#{team.icon ? image_tag(team.icon, title: team.sports.first.name, width: 25, height: 25) : ''}</div></div>".html_safe, team_path(team)
     - else
-      = link_to team.name, team_path(team)
+      = link_to "#{team.name} #{team.icon ? image_tag(team.icon, title: team.sports.first.name, width: 25, height: 25) : ''}", team_path(team)
+

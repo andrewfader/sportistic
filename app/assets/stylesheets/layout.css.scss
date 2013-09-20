@@ -27,17 +27,17 @@ body {
     input, label {
       display: block;
     }
-    .inline_box {
-      input, label, div {
-        display: inline;
-      }
-    }
     span.radio, span.checkbox {
       display: block;
       input, label {
         display: inline;
       }
     }
+  }
+}
+.inline_box {
+  input, label, div {
+    display: inline;
   }
 }
 table.dataTable {
