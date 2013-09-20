@@ -1,5 +1,6 @@
+%h3=link_to "Create Team", new_team_path if can? :create, Team
 - if current_user
-  - [[@matching_teams, "#{current_user.availability.to_sentence} #{current_user.sports.map(&:name).to_sentence}"], [current_user.member_teams, "My Teams"], [Team.where(captain_id: current_user.id).to_a, "Captainships"]].each do |teams, caption|
+  - [[@matching_teams - current_user.member_teams, "Matching Teams"], [current_user.member_teams, "My Teams"]].each do |teams, caption|
     - if teams.present?
       %h2=caption
       .team_list
@@ -21,5 +22,3 @@
       %td=team.location
       %td=team.experience_level
       %td=team.availability.to_sentence.gsub("Monday","Mon").gsub("Tuesday","Tues").gsub("Wednesday","Wed").gsub("Thursday","Thurs").gsub("Friday","Fri").gsub("Saturday","Sat").gsub("Sunday","Sun").gsub("morning","AM").gsub("night","PM")
-
-%h3=link_to "Create Team", new_team_path if can? :create, Team
