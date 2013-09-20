@@ -17,7 +17,7 @@
       %th Games Played
   - Team.all.each do |team|
     %tr
-      %td= link_to "#{image_tag(team.photo.thumb.url, title: team.name, alt: team.name)}<div class='thumb_name'>#{team.name}</div>".html_safe, team_path(team)
+      %td= render team, icon: false
       %td
         - team.sports.map(&:name).each do |sport|
           = image_tag "#{sport.downcase}.png", title: sport, alt: sport

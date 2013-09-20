@@ -5,7 +5,7 @@
     =@game.location
     #map-canvas
   %h3 Team
-  = link_to "#{image_tag(@game.team.photo.thumb.url, {title: @game.team.name, alt: @game.team.name})}<div class='inline_box'><div class='thumb_name'>#{@game.team.name}</div> <div class='icon'>#{@game.team.icon ? image_tag(@game.team.icon, title: @game.team.sports.first.name, width: 26, height: 26) : ''}</div></div>".html_safe, team_path(@game.team)
+  = render @game.team
   .players
     %h3 Players
     = render "users/list", users: @game.users

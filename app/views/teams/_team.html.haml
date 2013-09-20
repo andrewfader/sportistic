@@ -1,0 +1,1 @@
+= link_to "#{image_tag(team.photo.thumb.url, title: team.name, alt: team.name)}<div class='inline_box'><div class='thumb_name'>#{team.name}</div><div class='icon'> #{team.icon && icon ? image_tag(team.icon, title: team.sports.first.name, width: 25, height: 25) : ''} #{current_user && team.captain_id == current_user.id ? ' <b>C</b>' : ''}</div></div>".html_safe, team_path(team)

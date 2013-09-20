@@ -20,8 +20,7 @@
 .roster
   %h3 Captain: #{link_to @team.captain.name, user_path(@team.captain)}
   %h3 Roster
-  = render "users/list", users: @team.member_users
-  = render "players/list", players: @team.players
+  = render "users/list", users: (@team.member_users + @team.players).sort_by(&:name)
 
 - if can? :edit, @team
   - if @team.pending_users.present?

@@ -1,0 +1,1 @@
+= link_to "#{image_tag((user.try(:photo) ? user.photo.thumb.url : "default.png"), title: user.name, alt: user.name)}<div class='thumb_name'>#{user.name}</div>".html_safe, (user.is_a?(User) ? user_path(user) : '#')
