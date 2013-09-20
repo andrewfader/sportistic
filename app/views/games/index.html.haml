@@ -1,4 +1,4 @@
 - if current_user
-  = link_to "Create a game", new_game_path if current_user.member_teams.present?
-  #map-index
+  = link_to "Create a game", new_game_path if current_user.member_teams.present? && Team.where(captain_id: current_user.id).present?
+#map-index
 .calendar
