@@ -11,15 +11,14 @@
       %th Availability
   -User.where(privacy_toggle: true).each do |user|
     %tr
-      %td=link_to user.name, user_path(user)
+      %td= link_to "#{image_tag(user.photo.thumb.url, title: user.name, alt: user.name)}<div class='thumb_name'>#{user.name}</div>".html_safe, user_path(user)
       %td=user.gender
       %td=user.city
       %td
         %table
           - user.user_sports.each do |user_sport|
             %tr
-              %td= image_tag "#{user_sport.sport.name.downcase}.png", width: 25, height: 25
-              %td #{user_sport.sport.name}#{user_sport.position.present? ? ": #{user_sport.position.try(:flatten).try(:to_sentence)}" : ""}
+              %td #{image_tag "#{user_sport.sport.name.downcase}.png", alt: user_sport.sport.name, title: user_sport.sport.name, width: 36, height: 36}#{user_sport.position.present? ? ": #{user_sport.position.try(:flatten).try(:to_sentence)}" : ""}
       %td=user.experience_level
       %td=user.distance_to_travel
       %td=user.desire_to_join ? "Yes" : "No"
