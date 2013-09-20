@@ -23,4 +23,4 @@
       %td=user.experience_level
       %td=user.distance_to_travel
       %td=user.desire_to_join ? "Yes" : "No"
-      %td=user.availability.to_sentence
+      %td=user.availability.to_sentence.gsub("Monday","Mon").gsub("Tuesday","Tues").gsub("Wednesday","Wed").gsub("Thursday","Thurs").gsub("Friday","Fri").gsub("Saturday","Sat").gsub("Sunday","Sun").gsub("morning","AM").gsub("night","PM")
