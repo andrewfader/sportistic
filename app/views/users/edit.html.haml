@@ -20,9 +20,9 @@
       = f.input :availability, as: :check_boxes, collection: ["Monday night","Tuesday night","Wednesday night","Thursday night","Friday night","Saturday morning","Sunday afternoon","Saturday evening","Sunday morning","Sunday afternoon","Sunday evening"]
     = f.input :distance_to_travel, label: "Distance willing to travel"
     .teams
-      = f.label "Request to Join Team"
-      = f.autocomplete_field :teams, autocomplete_team_name_users_path, id_element: '#user_team_ids', value: ""
-      = f.association :teams, as: :hidden
+      -# = f.label "Request to Join Team"
+      -# = f.autocomplete_field :teams, autocomplete_team_name_users_path, id_element: '#user_team_ids', value: ""
+      -# = f.association :teams, as: :hidden
     .inline_box
       = f.label "I want to join a team"
       = f.input :desire_to_join, label: false, as: :boolean
