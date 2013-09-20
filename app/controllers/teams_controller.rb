@@ -43,10 +43,15 @@ class TeamsController < InheritedResources::Base
 
   def send_email
     team = Team.find(params[:team_id])
-    users = params["user_ids"].map { |id| User.find(id) }
-    UserMailer.team_message(users, team, params["email"]["body"]).deliver
-    flash[:notice] = "Email sent to #{users.map(&:name).to_sentence}"
-    redirect_to team_path(team)
+    if params["user_ids"].present?
+      users = params["user_ids"].map { |id| User.find(id) }
+      UserMailer.team_message(users, team, params["email"]["subject"], params["email"]["body"]).deliver
+      flash[:notice] = "Email sent to #{users.map(&:name).to_sentence}"
+      redirect_to team_path(team)
+    else
+      flash[:alert] = "No recipients selected"
+      redirect_to team_email_path(team)
+    end
   end
 
   private

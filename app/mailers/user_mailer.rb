@@ -12,9 +12,9 @@ class UserMailer < ActionMailer::Base
     mail(to: user.email, subject: "Request to join #{team.name}")
   end
 
-  def team_message(users, team, message)
+  def team_message(users, team, subject, message)
     @team = team
     @message = message
-    mail(to: users.map(&:email), subject: "Message for #{team.name} from #{team.captain.name}")
+    mail(to: users.map(&:email), subject: subject.presence || "Message for #{team.name} from #{team.captain.name}")
   end
 end
