@@ -19,7 +19,7 @@
           - user.user_sports.each do |user_sport|
             %tr
               %td= image_tag "/assets/#{user_sport.sport.name.downcase}.png", width: 25, height: 25
-              %td #{user_sport.sport.name}#{user_sport.position.present? ? ", positions: #{user_sport.position.try(:flatten).try(:to_sentence)}" : ""}
+              %td #{user_sport.sport.name}#{user_sport.position.present? ? ", #{user_sport.position.try(:flatten).try(:to_sentence)}" : ""}
       %td=user.experience_level
       %td=user.distance_to_travel
       %td=user.desire_to_join ? "Yes" : "No"
