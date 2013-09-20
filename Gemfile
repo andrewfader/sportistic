@@ -17,6 +17,9 @@ gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'jquery-rails'
 gem 'letter_opener', group: :development
 gem 'mini_magick'
+gem 'memcachier'
+gem 'dalli'
+gem 'newrelic_rpm'
 gem 'pg'
 gem 'rails_12factor', group: :production
 gem 'rails3-jquery-autocomplete'
