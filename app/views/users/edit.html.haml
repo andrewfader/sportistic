@@ -6,7 +6,7 @@
       .inline_box
         - Sport.all.map(&:name).each do |sport|
           %div{id: "sport_#{sport}"}
-            = link_to "#{image_tag("/assets/#{sport.downcase}.png")}<br><span class='sports_picker'>#{sport}</span>".html_safe, "#", class: 'pick_sport', id:"#{sport}", "data-selected" => false
+            = link_to "#{image_tag("#{sport.downcase}.png")}<br><span class='sports_picker'>#{sport}</span>".html_safe, "#", class: 'pick_sport', id:"#{sport}", "data-selected" => false
       %ul.position_chooser
         = f.simple_fields_for :user_sports do |g|
           %li

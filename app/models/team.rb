@@ -49,6 +49,6 @@ class Team < ActiveRecord::Base
   end
 
   def icon
-    sports.present? ? "/assets/#{sports.first.name.downcase}.png" : nil
+    sports.present? ? "#{sports.first.name.downcase}.png" : nil
   end
 end
