@@ -157,6 +157,7 @@ GEM
       ruby-hmac
     formatador (0.2.4)
     fullcalendar-rails (1.6.4.0)
+    geocoder (1.1.8)
     gherkin (2.12.1)
       multi_json (~> 1.3)
     grit (2.5.0)
@@ -355,6 +356,7 @@ DEPENDENCIES
   ffaker
   fog
   fullcalendar-rails
+  geocoder
   haml
   html2haml
   inherited_resources!

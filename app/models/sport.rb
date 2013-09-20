@@ -6,4 +6,8 @@ class Sport < ActiveHash::Base
     {id: 3, name: "Softball", positions: ["Pitcher","Catcher","1B","2B","SS","3B","Outfield"]},
     {id: 4, name: "Kickball", positions: ["Pitcher","Catcher","1B","2B","SS","3B","Outfield"]}
   ]
+
+  def icon
+    "#{name.downcase}.png"
+  end
 end

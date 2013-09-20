@@ -2,7 +2,7 @@
 .image=image_tag(@team.photo.small.url)
 =link_to "Edit my team info", edit_team_path(@team) if can? :edit, @team
 .location Location: #{@team.location}
-.sport Sport: #{@team.sports.map(&:name).to_sentence}
+.sport Sport: #{image_tag @team.icon, width: 25, height: 25} #{@team.sports.first.name}
 .type Team Type: #{@team.team_type}
 .year Year Founded: #{@team.year_founded}
 .experience_level Experience Level: #{@team.experience_level}

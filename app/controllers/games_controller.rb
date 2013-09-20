@@ -26,6 +26,6 @@ class GamesController < InheritedResources::Base
   private
 
   def permitted_params
-    params.permit(game: [:title, :start, :end, :team_id, :public, :creator_id])
+    params.permit(game: [:title, :start, :end, :team_id, :public, :creator_id, :location])
   end
 end

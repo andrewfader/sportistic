@@ -3,7 +3,9 @@ class Game < ActiveRecord::Base
   has_many :users, through: :user_games
   belongs_to :team
   belongs_to :creator, class_name: User
-  validates_presence_of :team_id, :start
+  validates_presence_of :team_id, :start, :location
+  geocoded_by :location
+  after_validation :geocode
 
   def url
     "/games/#{id}"

@@ -9,7 +9,7 @@ function readyUp() {
   $('.calendar').fullCalendar({
     events: '/games.json',
     theme: true,
-    height: 1000,
+    height: 500,
     header: {
       left: 'title',
       center: 'month basicWeek',
@@ -100,4 +100,57 @@ function readyUp() {
     $(this).submit();
   }
   )
+  if ($('.game_show').length > 0 && $('#map-canvas').length > 0) {
+    foo = $.getJSON(document.location + '.json', function(data, status, xhr) {
+      longitude = data["longitude"];
+      latitude = data["latitude"];
+      var mapOptions = {
+        zoom: 13,
+        center: new google.maps.LatLng(latitude, longitude),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+      var myLatLng = new google.maps.LatLng(latitude, longitude);
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map
+      });
+    });
+  }
+
+  if ($('#map-index').length > 0) {
+    foo = $.getJSON(document.location + '.json', function(data, status, xhr) {
+      var pos = new google.maps.LatLng(40.77, -73.94);
+      var mapOptions = {
+        zoom: 10,
+        center: pos,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      var map = new google.maps.Map(document.getElementById('map-index'), mapOptions);
+      if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+          map.setCenter(pos);
+        }, function() {
+        });
+      }
+      else {
+      }
+      data.map(function(game) {
+        if (game != null && game["latitude"] != null && game["longitude"] != null) {
+          var longitude = game["longitude"];
+          var latitude = game["latitude"];
+          var myLatLng = new google.maps.LatLng(latitude, longitude);
+          var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            game_id: game["id"]
+          });
+          google.maps.event.addListener(marker, 'click', function() {
+            window.location.href = '/games/' + marker.game_id;
+          });
+        }
+      });
+    });
+  }
 }

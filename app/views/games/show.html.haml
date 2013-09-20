@@ -1,10 +1,13 @@
-%h2=@game.title
-- if @game.team.photo.url != @game.team.photo.default_url
-  = link_to "#{image_tag(@game.team.photo.small.url, {title: @game.team.name, alt: @game.team.name})}#{@game.team.icon ? image_tag(@game.team.icon, title: @game.team.sports.first.name, width: 48, height: 48) : ''}".html_safe, team_path(@game.team)
-- else
-  = link_to "#{@game.team.name} #{@game.team.icon ? image_tag(@game.team.icon, title: @game.team.sports.first.name, width: 25, height: 25) : ''}".html_safe, team_path(@game.team)
-%h3 #{@game.start} to #{@game.end}
-.players
-  = render "users/list", users: @game.users
-- unless @game.users.include? current_user
-  = link_to "Play in this game", game_join_path(@game)
+.game_show
+  %h2=@game.title
+  %h3 #{@game.start} to #{@game.end}
+  - if @game.location.present?
+    =@game.location
+    #map-canvas
+  %h3 Team
+  = link_to "#{image_tag(@game.team.photo.thumb.url, {title: @game.team.name, alt: @game.team.name})}<div class='inline_box'><div class='thumb_name'>#{@game.team.name}</div> <div class='icon'>#{@game.team.icon ? image_tag(@game.team.icon, title: @game.team.sports.first.name, width: 26, height: 26) : ''}</div></div>".html_safe, team_path(@game.team)
+  .players
+    %h3 Players
+    = render "users/list", users: @game.users
+  - unless @game.users.include? current_user
+    = link_to "Play in this game", game_join_path(@game)
