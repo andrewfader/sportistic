@@ -10,6 +10,11 @@ function readyUp() {
     events: '/games.json',
     theme: true,
     height: 1000,
+    header: {
+      left: 'title',
+      center: 'month basicWeek',
+      right: 'today prev,next'
+    }
   })
 
   $('.ui-date-picker').datetimepicker(
