@@ -13,4 +13,11 @@ class Game < ActiveRecord::Base
     super.merge(url: url)
   end
 
+  def start
+    super ?  super.strftime('%m/%d/%Y') : super
+  end
+
+  def end
+    super ?  super.strftime('%m/%d/%Y') : super
+  end
 end
