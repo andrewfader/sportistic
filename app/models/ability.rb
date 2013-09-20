@@ -5,7 +5,9 @@ class Ability
     user ||= User.new
     if user.id
       can [:new, :create, :join, :destroy], Team
-      can [:new, :create, :edit, :update, :join], Game
+      can [:new, :create, :edit, :update, :join], Game do |game|
+        game.team ? game.team.captain_id == user.id : true
+      end
       can :approve, User
       can :create, Player
       can [:new, :index, :create, :destroy], UserSport

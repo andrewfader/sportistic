@@ -2,8 +2,6 @@ ruby '2.0.0'
 source 'https://rubygems.org'
 
 gem 'active_hash'
-gem 'better_errors'
-gem 'binding_of_caller'
 gem 'cancan'
 gem 'carrierwave'
 gem 'coffee-rails', '~> 4.0.0'
@@ -39,6 +37,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'ffaker'
   gem 'jazz_hands'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do

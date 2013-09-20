@@ -23,11 +23,6 @@ class GamesController < InheritedResources::Base
     redirect_to game_path(@game)
   end
 
-  def get_autocomplete_items(parameters)
-    items = super(parameters)
-    items = items & current_user.member_teams
-  end
-
   private
 
   def permitted_params
