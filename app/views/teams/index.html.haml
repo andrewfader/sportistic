@@ -21,4 +21,4 @@
       %td=team.sports.map(&:name).to_sentence
       %td=team.location
       %td=team.experience_level
-      %td=team.availability.to_sentence.gsub("Monday","Mon").gsub("Tuesday","Tues").gsub("Wednesday","Wed").gsub("Thursday","Thurs").gsub("Friday","Fri").gsub("Saturday","Sat").gsub("Sunday","Sun").gsub("morning","AM").gsub("night","PM")
+      %td=team.availability.to_sentence.gsub("Monday","Mon").gsub("Tuesday","Tues").gsub("Wednesday","Wed").gsub("Thursday","Thurs").gsub("Friday","Fri").gsub("Saturday","Sat").gsub("Sunday","Sun").gsub("morning","AM").gsub("night","PM").gsub("evening","PM")
