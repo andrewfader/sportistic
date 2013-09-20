@@ -19,4 +19,5 @@ Sportistic::Application.routes.draw do
     get 'join'
     get :autocomplete_team_name, on: :collection
   end
+  get :about, to: 'about#index'
 end
