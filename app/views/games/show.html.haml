@@ -5,7 +5,7 @@
     =@game.location
     #map-canvas
   %h3 Team
-  = render @game.team
+  = render @game.team, icon: true
   .players
     %h3 Players
     = render "users/list", users: @game.users

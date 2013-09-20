@@ -12,7 +12,11 @@ class Game < ActiveRecord::Base
   end
 
   def as_json(options={})
-    super.merge(url: url)
+    super.merge(url: url, icon: icon)
+  end
+
+  def icon
+    team.icon.present? ? team.icon.gsub('.png','_selected.png') : 'default_icon.png'
   end
 
   def start

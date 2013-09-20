@@ -100,20 +100,21 @@ function readyUp() {
     $(this).submit();
   }
   )
-  if ($('.game_show').length > 0 && $('#map-canvas').length > 0) {
+  if ($('#map-canvas').length > 0) {
     foo = $.getJSON(document.location + '.json', function(data, status, xhr) {
       longitude = data["longitude"];
       latitude = data["latitude"];
+      var position = new google.maps.LatLng(latitude, longitude);
       var mapOptions = {
         zoom: 13,
-        center: new google.maps.LatLng(latitude, longitude),
+        center: position,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
       var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-      var myLatLng = new google.maps.LatLng(latitude, longitude);
       var marker = new google.maps.Marker({
-        position: myLatLng,
-        map: map
+        position: position,
+        map: map,
+        icon: '/assets/' + data["icon"]
       });
     });
   }
@@ -134,8 +135,6 @@ function readyUp() {
         }, function() {
         });
       }
-      else {
-      }
       data.map(function(game) {
         if (game != null && game["latitude"] != null && game["longitude"] != null) {
           var longitude = game["longitude"];
@@ -144,7 +143,8 @@ function readyUp() {
           var marker = new google.maps.Marker({
             position: myLatLng,
             map: map,
-            game_id: game["id"]
+            game_id: game["id"],
+            icon: '/assets/' + game["icon"]
           });
           google.maps.event.addListener(marker, 'click', function() {
             window.location.href = '/games/' + marker.game_id;
