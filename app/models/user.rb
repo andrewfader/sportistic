@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  include Availability
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
@@ -31,5 +30,9 @@ class User < ActiveRecord::Base
 
   def pending_teams
     user_teams.where(membership: false).map(&:team)
+  end
+
+  def availability
+    super ? super.map(&:presence).compact : []
   end
 end

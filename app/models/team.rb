@@ -1,5 +1,4 @@
 class Team < ActiveRecord::Base
-  include Availability
   has_many :user_teams, dependent: :destroy
   has_many :users, through: :user_teams
   has_many :players, dependent: :destroy
@@ -50,5 +49,9 @@ class Team < ActiveRecord::Base
 
   def icon
     sports.present? ? sports.first.icon : nil
+  end
+
+  def availability
+    super ? super.map(&:presence).compact : []
   end
 end
