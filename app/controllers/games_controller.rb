@@ -5,10 +5,6 @@ class GamesController < InheritedResources::Base
   autocomplete :team, :name
   skip_authorize_resource only: :autocomplete_team_name
 
-  def index
-    super
-  end
-
   def new
     if current_user.teams.present?
       @team = Team.find_by_id(params[:team_id])
@@ -26,6 +22,6 @@ class GamesController < InheritedResources::Base
   private
 
   def permitted_params
-    params.permit(game: [:title, :start, :end, :team_id, :public, :creator_id, :location])
+    params.permit(game: [:title, :start, :end, :team_id, :vs_team_id, :public, :creator_id, :location])
   end
 end

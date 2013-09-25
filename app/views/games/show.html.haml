@@ -6,6 +6,9 @@
     #map-canvas
   %h3 Team
   = render @game.team, icon: true
+  - if @game.vs_team
+    Versus:
+    = render @game.vs_team, icon: true
   .players
     %h3 Players
     = render "users/list", users: @game.users

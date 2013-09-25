@@ -2,6 +2,7 @@ class Game < ActiveRecord::Base
   has_many :user_games
   has_many :users, through: :user_games
   belongs_to :team
+  belongs_to :vs_team, class_name: Team
   belongs_to :creator, class_name: User
   validates_presence_of :team_id, :start, :location
   geocoded_by :location

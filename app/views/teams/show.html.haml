@@ -10,11 +10,11 @@
 .availability Games Played: #{@team.availability.to_sentence}
 - if @team.league_url
   .league League: #{link_to @team.league_name, @team.league_url}
-- if @team.games.present?
+- if (games = (@team.games | Game.where(vs_team_id: @team.id))).present?
   .games
     %h3 Games
     %ul
-      - @team.games.each do |game|
+      - games.each do |game|
         %li
           = link_to game.title, game_path(game)
 .roster

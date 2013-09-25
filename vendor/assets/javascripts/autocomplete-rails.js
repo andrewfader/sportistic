@@ -6,7 +6,7 @@
 *
 *   Example:
 *       <input type="text" data-autocomplete="/url/to/autocomplete">
-* 
+*
 * Optionally, you can use a jQuery selector to specify a field that can
 * be updated with the element id whenever you find a matching value
 *
@@ -28,16 +28,16 @@ $(document).ready(function(){
 			}
 		});
 	};
-	
+
 	jQuery.railsAutocomplete = function (e) {
 		_e = e;
 		this.init(_e);
 	};
-	
+
 	jQuery.railsAutocomplete.fn = jQuery.railsAutocomplete.prototype = {
 		railsAutocomplete: '0.0.1'
 	};
-	
+
 	jQuery.railsAutocomplete.fn.extend = jQuery.railsAutocomplete.extend = jQuery.extend;
 	jQuery.railsAutocomplete.fn.extend({
 		init: function(e) {
@@ -48,7 +48,7 @@ $(document).ready(function(){
 			function extractLast( term ) {
 				return split( term ).pop();
 			}
-		
+
 	    $(e).autocomplete({
 				source: function( request, response ) {
 					$.getJSON( $(e).attr('data-autocomplete'), {
@@ -58,7 +58,7 @@ $(document).ready(function(){
 				search: function() {
 					// custom minLength
 					var term = extractLast( this.value );
-					if ( term.length < 2 ) {
+					if ( term.length < 1 ) {
 						return false;
 					}
 				},
@@ -82,7 +82,7 @@ $(document).ready(function(){
 							$($(this).attr('id_element')).val(ui.item.id);
 						}
 					};
-				
+
 					return false;
 				}
 			});
