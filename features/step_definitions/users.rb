@@ -12,3 +12,7 @@ When /^I wait for the request to finish$/ do
     sleep 1
   end
 end
+
+Given /^a league$/ do
+  League.create(name: 'MLB', url: 'http://www.mlb.com/')
+end

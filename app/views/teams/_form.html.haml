@@ -7,8 +7,8 @@
     = f.input :experience_level, as: :radio_buttons, collection: ["Beginner","Intermediate","Advanced","Awesome"]
   = f.simple_fields_for :team_sports do |g|
     = g.input :sport_id, label: "Sport", collection: Sport.all, as: :check_boxes, include_blank: false,as: :radio_buttons
-  = f.input :league_name
-  = f.input :league_url
+  = f.simple_fields_for :team_league do |g|
+    = g.input :league_id, collection: League.all
   = f.input :team_type
   = f.input :year_founded
   = f.input :achievements

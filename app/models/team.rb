@@ -12,6 +12,10 @@ class Team < ActiveRecord::Base
   has_many :sports, through: :team_sports
   accepts_nested_attributes_for :team_sports
 
+  has_one :team_league
+  has_one :league, through: :team_league
+  accepts_nested_attributes_for :team_league
+
   mount_uploader :photo, ::PhotoUploader
 
   def sports

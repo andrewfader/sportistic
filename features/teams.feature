@@ -2,13 +2,14 @@ Feature: Teams
 
   Scenario:
     Given a logged in user
+    And a league
     When I go to the home page
     And I follow "Create Team"
     And I fill in "Name" with "Hanshin Tigers"
     And I fill in "Location" with "Hokkaido"
     And I choose "Baseball"
     And I choose "Beginner"
-    And I fill in "League name" with "MLB"
+    And I select "MLB" from "League"
     And I fill in "Year founded" with "1996"
     And I press "Create Team"
     And I follow "Teams"

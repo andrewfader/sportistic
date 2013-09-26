@@ -1,0 +1,11 @@
+%table.datatable
+  %thead
+    %tr
+      %td Name
+      %td Description
+      %td Count
+  - collection.each do |league|
+    %tr
+      %td=link_to league.name, league.url
+      %td=league.description
+      %td=league.teams.count

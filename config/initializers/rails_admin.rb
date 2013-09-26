@@ -1,5 +1,4 @@
-
-# RailsAdmin config file. Generated on September 23, 2013 22:45
+# RailsAdmin config file. Generated on September 26, 2013 17:43
 # See github.com/sferik/rails_admin for more informations
 
 RailsAdmin.config do |config|
@@ -39,7 +38,6 @@ RailsAdmin.config do |config|
     redirect_to "/" unless warden.user.is_admin
   end
 
-
   ################  Model configuration  ################
 
   # Each model configuration can alternatively:
@@ -64,25 +62,69 @@ RailsAdmin.config do |config|
 
   #   # Found associations:
 
-  #     configure :team, :belongs_to_association
-  #     configure :creator, :belongs_to_association
-  #     configure :user_games, :has_many_association
-  #     configure :users, :has_many_association
+  #     configure :team, :belongs_to_association 
+  #     configure :creator, :belongs_to_association 
+  #     configure :vs_team, :belongs_to_association 
+  #     configure :user_games, :has_many_association 
+  #     configure :users, :has_many_association 
 
   #   # Found columns:
 
-  #     configure :id, :integer
-  #     configure :title, :string
-  #     configure :start, :datetime
-  #     configure :end, :datetime
-  #     configure :team_id, :integer         # Hidden
-  #     configure :creator_id, :integer         # Hidden
-  #     configure :public, :boolean
-  #     configure :created_at, :datetime
-  #     configure :updated_at, :datetime
-  #     configure :location, :string
-  #     configure :latitude, :string
-  #     configure :longitude, :string
+  #     configure :id, :integer 
+  #     configure :title, :string 
+  #     configure :start, :datetime 
+  #     configure :end, :datetime 
+  #     configure :team_id, :integer         # Hidden 
+  #     configure :creator_id, :integer         # Hidden 
+  #     configure :public, :boolean 
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime 
+  #     configure :location, :string 
+  #     configure :latitude, :string 
+  #     configure :longitude, :string 
+  #     configure :vs_team_id, :integer         # Hidden 
+
+  #   # Cross-section configuration:
+
+  #     # object_label_method :name     # Name of the method called for pretty printing an *instance* of ModelName
+  #     # label 'My model'              # Name of ModelName (smartly defaults to ActiveRecord's I18n API)
+  #     # label_plural 'My models'      # Same, plural
+  #     # weight 0                      # Navigation priority. Bigger is higher.
+  #     # parent OtherModel             # Set parent model for navigation. MyModel will be nested below. OtherModel will be on first position of the dropdown
+  #     # navigation_label              # Sets dropdown entry's name in navigation. Only for parents!
+
+  #   # Section specific configuration:
+
+  #     list do
+  #       # filters [:id, :name]  # Array of field names which filters should be shown by default in the table header
+  #       # items_per_page 100    # Override default_items_per_page
+  #       # sort_by :id           # Sort column (default is primary key)
+  #       # sort_reverse true     # Sort direction (default is true for primary key, last created first)
+  #     end
+  #     show do; end
+  #     edit do; end
+  #     export do; end
+  #     # also see the create, update, modal and nested sections, which override edit in specific cases (resp. when creating, updating, modifying from another model in a popup modal or modifying from another model nested form)
+  #     # you can override a cross-section field configuration in any section with the same syntax `configure :field_name do ... end`
+  #     # using `field` instead of `configure` will exclude all other fields and force the ordering
+  # end
+
+
+  ###  League  ###
+
+  # config.model 'League' do
+
+  #   # You can copy this to a 'rails_admin do ... end' block inside your league.rb model definition
+
+  #   # Found associations:
+
+
+
+  #   # Found columns:
+
+  #     configure :id, :integer 
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime 
 
   #   # Cross-section configuration:
 
@@ -118,15 +160,15 @@ RailsAdmin.config do |config|
 
   #   # Found associations:
 
-  #     configure :team, :belongs_to_association
+  #     configure :team, :belongs_to_association 
 
   #   # Found columns:
 
-  #     configure :id, :integer
-  #     configure :name, :string
-  #     configure :team_id, :integer         # Hidden
-  #     configure :created_at, :datetime
-  #     configure :updated_at, :datetime
+  #     configure :id, :integer 
+  #     configure :name, :string 
+  #     configure :team_id, :integer         # Hidden 
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime 
 
   #   # Cross-section configuration:
 
@@ -162,80 +204,35 @@ RailsAdmin.config do |config|
 
   #   # Found associations:
 
-  #     configure :captain, :belongs_to_association
-  #     configure :user_teams, :has_many_association
-  #     configure :users, :has_many_association
-  #     configure :players, :has_many_association
-  #     configure :games, :has_many_association
-  #     configure :team_sports, :has_many_association
-  #     configure :sports, :has_many_association         # Hidden
+  #     configure :captain, :belongs_to_association 
+  #     configure :user_teams, :has_many_association 
+  #     configure :users, :has_many_association 
+  #     configure :players, :has_many_association 
+  #     configure :games, :has_many_association 
+  #     configure :team_sports, :has_many_association         # Hidden 
+  #     configure :sports, :has_many_association         # Hidden 
 
   #   # Found columns:
 
-  #     configure :id, :integer
-  #     configure :name, :string
-  #     configure :location, :string
-  #     configure :captain_id, :integer         # Hidden
-  #     configure :league_id, :integer
-  #     configure :external_league, :boolean
-  #     configure :league_name, :string
-  #     configure :league_url, :string
-  #     configure :created_at, :datetime
-  #     configure :updated_at, :datetime
-  #     configure :experience_level, :string
-  #     configure :looking_free_agents, :boolean
-  #     configure :privacy_toggle, :boolean
-  #     configure :team_type, :string
-  #     configure :year_founded, :string
-  #     configure :bio, :text
-  #     configure :achievements, :text
-  #     configure :availability, :serialized
-  #     configure :photo, :carrierwave
-
-  #   # Cross-section configuration:
-
-  #     # object_label_method :name     # Name of the method called for pretty printing an *instance* of ModelName
-  #     # label 'My model'              # Name of ModelName (smartly defaults to ActiveRecord's I18n API)
-  #     # label_plural 'My models'      # Same, plural
-  #     # weight 0                      # Navigation priority. Bigger is higher.
-  #     # parent OtherModel             # Set parent model for navigation. MyModel will be nested below. OtherModel will be on first position of the dropdown
-  #     # navigation_label              # Sets dropdown entry's name in navigation. Only for parents!
-
-  #   # Section specific configuration:
-
-  #     list do
-  #       # filters [:id, :name]  # Array of field names which filters should be shown by default in the table header
-  #       # items_per_page 100    # Override default_items_per_page
-  #       # sort_by :id           # Sort column (default is primary key)
-  #       # sort_reverse true     # Sort direction (default is true for primary key, last created first)
-  #     end
-  #     show do; end
-  #     edit do; end
-  #     export do; end
-  #     # also see the create, update, modal and nested sections, which override edit in specific cases (resp. when creating, updating, modifying from another model in a popup modal or modifying from another model nested form)
-  #     # you can override a cross-section field configuration in any section with the same syntax `configure :field_name do ... end`
-  #     # using `field` instead of `configure` will exclude all other fields and force the ordering
-  # end
-
-
-  ###  TeamSport  ###
-
-  # config.model 'TeamSport' do
-
-  #   # You can copy this to a 'rails_admin do ... end' block inside your team_sport.rb model definition
-
-  #   # Found associations:
-
-  #     configure :team, :belongs_to_association
-  #     configure :sport, :belongs_to_association         # Hidden
-
-  #   # Found columns:
-
-  #     configure :id, :integer
-  #     configure :team_id, :integer         # Hidden
-  #     configure :sport_id, :integer         # Hidden
-  #     configure :created_at, :datetime
-  #     configure :updated_at, :datetime
+  #     configure :id, :integer 
+  #     configure :name, :string 
+  #     configure :location, :string 
+  #     configure :captain_id, :integer         # Hidden 
+  #     configure :league_id, :integer 
+  #     configure :external_league, :boolean 
+  #     configure :league_name, :string 
+  #     configure :league_url, :string 
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime 
+  #     configure :experience_level, :string 
+  #     configure :looking_free_agents, :boolean 
+  #     configure :privacy_toggle, :boolean 
+  #     configure :team_type, :string 
+  #     configure :year_founded, :string 
+  #     configure :bio, :text 
+  #     configure :achievements, :text 
+  #     configure :availability, :serialized 
+  #     configure :photo, :carrierwave 
 
   #   # Cross-section configuration:
 
@@ -271,50 +268,51 @@ RailsAdmin.config do |config|
 
   #   # Found associations:
 
-  #     configure :invited_by, :polymorphic_association         # Hidden
-  #     configure :user_teams, :has_many_association
-  #     configure :teams, :has_many_association
-  #     configure :user_games, :has_many_association
-  #     configure :games, :has_many_association
-  #     configure :user_sports, :has_many_association
-  #     configure :sports, :has_many_association         # Hidden
+  #     configure :invited_by, :polymorphic_association         # Hidden 
+  #     configure :user_teams, :has_many_association 
+  #     configure :teams, :has_many_association 
+  #     configure :user_games, :has_many_association 
+  #     configure :games, :has_many_association 
+  #     configure :user_sports, :has_many_association         # Hidden 
+  #     configure :sports, :has_many_association         # Hidden 
 
   #   # Found columns:
 
-  #     configure :id, :integer
-  #     configure :email, :string
-  #     configure :password, :password         # Hidden
-  #     configure :password_confirmation, :password         # Hidden
-  #     configure :reset_password_token, :string         # Hidden
-  #     configure :reset_password_sent_at, :datetime
-  #     configure :remember_created_at, :datetime
-  #     configure :sign_in_count, :integer
-  #     configure :current_sign_in_at, :datetime
-  #     configure :last_sign_in_at, :datetime
-  #     configure :current_sign_in_ip, :string
-  #     configure :last_sign_in_ip, :string
-  #     configure :created_at, :datetime
-  #     configure :updated_at, :datetime
-  #     configure :name, :string
-  #     configure :gender, :string
-  #     configure :privacy_toggle, :boolean
-  #     configure :photo, :carrierwave
-  #     configure :bio, :text
-  #     configure :phone, :string
-  #     configure :city, :string
-  #     configure :achievements, :string
-  #     configure :experience_level, :string
-  #     configure :desire_to_join, :boolean
-  #     configure :distance_to_travel, :string
-  #     configure :availability, :serialized
-  #     configure :invitation_token, :string
-  #     configure :invitation_sent_at, :datetime
-  #     configure :invitation_accepted_at, :datetime
-  #     configure :invitation_limit, :integer
-  #     configure :invited_by_id, :integer         # Hidden
-  #     configure :invited_by_type, :string         # Hidden
-  #     configure :invited_to_id, :integer
-  #     configure :state, :string
+  #     configure :id, :integer 
+  #     configure :email, :string 
+  #     configure :password, :password         # Hidden 
+  #     configure :password_confirmation, :password         # Hidden 
+  #     configure :reset_password_token, :string         # Hidden 
+  #     configure :reset_password_sent_at, :datetime 
+  #     configure :remember_created_at, :datetime 
+  #     configure :sign_in_count, :integer 
+  #     configure :current_sign_in_at, :datetime 
+  #     configure :last_sign_in_at, :datetime 
+  #     configure :current_sign_in_ip, :string 
+  #     configure :last_sign_in_ip, :string 
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime 
+  #     configure :name, :string 
+  #     configure :gender, :string 
+  #     configure :privacy_toggle, :boolean 
+  #     configure :photo, :carrierwave 
+  #     configure :bio, :text 
+  #     configure :phone, :string 
+  #     configure :city, :string 
+  #     configure :achievements, :string 
+  #     configure :experience_level, :string 
+  #     configure :desire_to_join, :boolean 
+  #     configure :distance_to_travel, :string 
+  #     configure :availability, :serialized 
+  #     configure :invitation_token, :string 
+  #     configure :invitation_sent_at, :datetime 
+  #     configure :invitation_accepted_at, :datetime 
+  #     configure :invitation_limit, :integer 
+  #     configure :invited_by_id, :integer         # Hidden 
+  #     configure :invited_by_type, :string         # Hidden 
+  #     configure :invited_to_id, :integer 
+  #     configure :state, :string 
+  #     configure :is_admin, :boolean 
 
   #   # Cross-section configuration:
 
@@ -350,58 +348,14 @@ RailsAdmin.config do |config|
 
   #   # Found associations:
 
-  #     configure :user, :belongs_to_association
-  #     configure :game, :belongs_to_association
+  #     configure :user, :belongs_to_association 
+  #     configure :game, :belongs_to_association 
 
   #   # Found columns:
 
-  #     configure :id, :integer
-  #     configure :user_id, :integer         # Hidden
-  #     configure :game_id, :integer         # Hidden
-
-  #   # Cross-section configuration:
-
-  #     # object_label_method :name     # Name of the method called for pretty printing an *instance* of ModelName
-  #     # label 'My model'              # Name of ModelName (smartly defaults to ActiveRecord's I18n API)
-  #     # label_plural 'My models'      # Same, plural
-  #     # weight 0                      # Navigation priority. Bigger is higher.
-  #     # parent OtherModel             # Set parent model for navigation. MyModel will be nested below. OtherModel will be on first position of the dropdown
-  #     # navigation_label              # Sets dropdown entry's name in navigation. Only for parents!
-
-  #   # Section specific configuration:
-
-  #     list do
-  #       # filters [:id, :name]  # Array of field names which filters should be shown by default in the table header
-  #       # items_per_page 100    # Override default_items_per_page
-  #       # sort_by :id           # Sort column (default is primary key)
-  #       # sort_reverse true     # Sort direction (default is true for primary key, last created first)
-  #     end
-  #     show do; end
-  #     edit do; end
-  #     export do; end
-  #     # also see the create, update, modal and nested sections, which override edit in specific cases (resp. when creating, updating, modifying from another model in a popup modal or modifying from another model nested form)
-  #     # you can override a cross-section field configuration in any section with the same syntax `configure :field_name do ... end`
-  #     # using `field` instead of `configure` will exclude all other fields and force the ordering
-  # end
-
-
-  ###  UserSport  ###
-
-  # config.model 'UserSport' do
-
-  #   # You can copy this to a 'rails_admin do ... end' block inside your user_sport.rb model definition
-
-  #   # Found associations:
-
-  #     configure :user, :belongs_to_association
-  #     configure :sport, :belongs_to_association         # Hidden
-
-  #   # Found columns:
-
-  #     configure :id, :integer
-  #     configure :user_id, :integer         # Hidden
-  #     configure :position, :serialized
-  #     configure :sport_id, :integer         # Hidden
+  #     configure :id, :integer 
+  #     configure :user_id, :integer         # Hidden 
+  #     configure :game_id, :integer         # Hidden 
 
   #   # Cross-section configuration:
 
@@ -437,15 +391,15 @@ RailsAdmin.config do |config|
 
   #   # Found associations:
 
-  #     configure :team, :belongs_to_association
-  #     configure :user, :belongs_to_association
+  #     configure :team, :belongs_to_association 
+  #     configure :user, :belongs_to_association 
 
   #   # Found columns:
 
-  #     configure :id, :integer
-  #     configure :team_id, :integer         # Hidden
-  #     configure :user_id, :integer         # Hidden
-  #     configure :membership, :boolean
+  #     configure :id, :integer 
+  #     configure :team_id, :integer         # Hidden 
+  #     configure :user_id, :integer         # Hidden 
+  #     configure :membership, :boolean 
 
   #   # Cross-section configuration:
 
