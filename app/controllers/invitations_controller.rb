@@ -1,6 +1,6 @@
 class InvitationsController < Devise::InvitationsController
-  prepend_before_filter :configure_permitted_parameters
   prepend_before_filter :check_for_existing_user, only: [:edit, :update, :destroy]
+  prepend_before_filter :configure_permitted_parameters
 
   def after_accept_path_for(user)
     team_path(Team.associate(user, user.invited_by_id))
@@ -30,6 +30,15 @@ class InvitationsController < Devise::InvitationsController
       respond_with resource, :location => after_invite_path_for(resource)
     else
       respond_with_navigational(resource) { render :new }
+    end
+
+  end
+
+  protected
+  def resource_from_invitation_token
+    unless params[:invitation_token] && self.resource = resource_class.find_by_invitation_token(params[:invitation_token], false)
+      set_flash_message(:alert, :invitation_token_invalid)
+      redirect_to after_sign_out_path_for(resource_name)
     end
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130926213321) do
+ActiveRecord::Schema.define(version: 20131020215847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20130926213321) do
   create_table "games", force: true do |t|
     t.string   "title"
     t.datetime "start"
-    t.datetime "end"
     t.integer  "team_id"
     t.integer  "creator_id"
     t.boolean  "public"
@@ -31,12 +30,16 @@ ActiveRecord::Schema.define(version: 20130926213321) do
     t.integer  "vs_team_id"
   end
 
+  add_index "games", ["team_id"], name: "index_games_on_team_id", using: :btree
+  add_index "games", ["vs_team_id"], name: "index_games_on_vs_team_id", using: :btree
+
   create_table "leagues", force: true do |t|
     t.string   "name"
     t.string   "url"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "pending",     default: "false"
   end
 
   create_table "players", force: true do |t|
@@ -125,12 +128,12 @@ ActiveRecord::Schema.define(version: 20130926213321) do
   add_index "user_teams", ["user_id"], name: "index_user_teams_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",                             default: "",    null: false
-    t.string   "encrypted_password",                default: ""
+    t.string   "email",                  default: "",      null: false
+    t.string   "encrypted_password",     default: ""
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                     default: 0
+    t.integer  "sign_in_count",          default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -149,7 +152,7 @@ ActiveRecord::Schema.define(version: 20130926213321) do
     t.boolean  "desire_to_join"
     t.string   "distance_to_travel"
     t.string   "availability"
-    t.string   "invitation_token",       limit: 60
+    t.string   "invitation_token"
     t.datetime "invitation_sent_at"
     t.datetime "invitation_accepted_at"
     t.integer  "invitation_limit"
@@ -157,11 +160,12 @@ ActiveRecord::Schema.define(version: 20130926213321) do
     t.string   "invited_by_type"
     t.integer  "invited_to_id"
     t.string   "state"
-    t.boolean  "is_admin",                          default: false
+    t.boolean  "is_admin",               default: "false"
+    t.datetime "invitation_created_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
+  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", using: :btree
   add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 

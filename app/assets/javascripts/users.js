@@ -96,10 +96,12 @@ function readyUp() {
     });
   }
 
-  $('form.edit_user').change(function() {
-    $(this).submit();
+  if ($('.sports_picker').length > 0) {
+    $('form.edit_user').change(function() {
+      $(this).submit();
+    });
   }
-  )
+
   if ($('#map-canvas').length > 0) {
     foo = $.getJSON(document.location + '.json', function(data, status, xhr) {
       longitude = data["longitude"];

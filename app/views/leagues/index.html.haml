@@ -4,8 +4,10 @@
       %td Name
       %td Description
       %td Count
-  - collection.each do |league|
+  - @leagues.each do |league|
     %tr
       %td=link_to league.name, league.url
       %td=league.description
       %td=league.teams.count
+
+= render "leagues/new"

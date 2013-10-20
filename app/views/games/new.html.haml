@@ -2,7 +2,6 @@
   = f.input :title
   = f.input :location
   = f.input :start, as: :ui_date_picker
-  = f.input :end, as: :ui_date_picker
   - if @team.present?
     = f.input :team_id, as: :hidden, input_html: { value: @team.id }
     Team: #{@team.name}

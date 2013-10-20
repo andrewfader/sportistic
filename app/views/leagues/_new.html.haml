@@ -1,0 +1,7 @@
+%h3 Suggest a League
+= simple_form_for League.new do |f|
+  = f.hidden_field :pending, value: true
+  = f.input :name
+  = f.input :url, label: "URL"
+  = f.input :description
+  = f.submit

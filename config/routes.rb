@@ -9,7 +9,7 @@ Sportistic::Application.routes.draw do
     get :autocomplete_team_name, on: :collection
   end
   resources :user_sports
-  resources :leagues, only: :index
+  resources :leagues
   resources :sports, only: :index
   resources :teams do
     resources :players, except: [:destroy]

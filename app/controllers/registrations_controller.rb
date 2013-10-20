@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  before_filter :configure_permitted_parameters
+  prepend_before_filter :configure_permitted_parameters
 
   def after_sign_in_path_for(user)
     edit_user_path(user)
@@ -38,6 +38,10 @@ class RegistrationsController < Devise::RegistrationsController
     end
     devise_parameter_sanitizer.for(:account_update) do |u|
       u.permit(:email, :password, :current_password, :password_confirmation, :remember_me, :state, :name, {user_sports_attributes: [:sport_id, :position]}, :city, :privacy_toggle, :gender, :interests, :photo, :bio, :achievements, :distance_to_travel, :desire_to_join, :experience_level, :availability, :phone, photos_attributes: ['title', 'image', '_destroy'])
+    end
+
+    devise_parameter_sanitizer.for(:invite) do |u|
+      u.permit(:email, :user_id, :invited_to_id)
     end
   end
 end
