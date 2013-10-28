@@ -5,13 +5,15 @@
   %table.datatable
     %thead
       %tr
-        %th Team
         %th Date
+        %th Team
+        %th Versus
         %th Location
     - games.each do |game|
       %tr
+        %td= link_to game.start, game
         %td= render game.team, icon: true
-        %td= game.start
+        %td= render game.vs_team, icon: true
         %td= game.location
 %p
 #map-index
