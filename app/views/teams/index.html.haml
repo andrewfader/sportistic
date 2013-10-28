@@ -1,5 +1,5 @@
 %h3=link_to "Create Team", new_team_path if can? :create, Team
-- if current_user && if current_user.member_teams.present?
+- if current_user && current_user.member_teams.present?
   %h2 My Teams"
   .team_list
     = render "list", teams: current_user.member_teams
