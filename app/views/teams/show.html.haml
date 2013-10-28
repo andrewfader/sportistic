@@ -31,17 +31,11 @@
           = link_to user.name, user_path(user)
           (#{link_to "Approve", user_approve_path(user, team_id: @team.id)})
 
-  = link_to "Invite new players to my team", new_user_invitation_path(team_id: @team.id)
+  = link_to "Invite new players to my team", users_path
   %br
   = link_to "Add a new game", new_team_game_path(@team.id)
   - if can? :email, @team
     = link_to "Email your team", team_email_path(@team)
-  .add_player
-    %h3 Add a new non-user player
-    = simple_form_for [@team, @team.players.build] do |f|
-      = f.input :name
-      = f.input :team_id, as: :hidden, input_html: { value: @team.id }
-      = f.submit
   = link_to "Delete team", team_path(@team), confirm: "Are you sure?", method: :delete
 - unless @team.users.include? current_user
   = link_to "Join this team", team_join_path(@team)

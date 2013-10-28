@@ -1,10 +1,4 @@
 %h3=link_to "Create Team", new_team_path if can? :create, Team
-- if current_user
-  - [[@matching_teams - current_user.member_teams, "Matching Teams"], [current_user.member_teams, "My Teams"]].each do |teams, caption|
-    - if teams.present?
-      %h2=caption
-      .team_list
-        = render "list", teams: teams
 
 %h2 All Teams
 %table.datatable
