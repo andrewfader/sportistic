@@ -17,6 +17,11 @@ class TeamsController < InheritedResources::Base
     super
   end
 
+  def edit
+    @team.team_league = TeamLeague.new if @team.team_league == nil
+    super
+  end
+
   def join
     if (@team = Team.find_by_id(params[:team_id]))
       UserMailer.join_request(current_user, @team).deliver

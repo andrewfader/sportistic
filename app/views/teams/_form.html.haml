@@ -8,9 +8,13 @@
   = f.simple_fields_for :team_sports do |g|
     = g.input :sport_id, label: "Sport", collection: Sport.all, as: :check_boxes, include_blank: false,as: :radio_buttons
   = f.simple_fields_for :team_league do |g|
-    = g.input :league_id, collection: League.all
+    = g.input :league_id, collection: League.where(pending: false)
+  = link_to "Suggest a new league", "#", id: 'suggest_league'
   = f.input :team_type
   = f.input :year_founded
   = f.input :achievements
   = f.input :availability, as: :check_boxes, collection: ["Monday night","Tuesday night","Wednesday night","Thursday night","Friday night","Saturday morning","Sunday afternoon","Saturday evening","Sunday morning","Sunday afternoon","Sunday evening"], label: "Game Times"
   = f.submit
+.hidden
+  .suggest_league_modal
+    = render 'leagues/new', remote: true

@@ -155,4 +155,15 @@ function readyUp() {
       });
     });
   }
+  if ($('a#suggest_league')) {
+    $('a#suggest_league').click(function(e) {
+      $('.suggest_league_modal').modal();
+      e.preventDefault();
+    });
+    $('.suggest_league_modal input.ui-button').click(function() {
+      $(this).closest('form').submit();
+      $('p.notice').text('Your new league has been suggested; an admin will review it soon.')
+      $.modal.close();
+    });
+  }
 }
