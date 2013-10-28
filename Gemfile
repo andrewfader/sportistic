@@ -33,7 +33,8 @@ gem 'ui_datepicker-rails3', github: 'kristianmandrup/ui_datepicker-rails3'
 gem 'unicorn'
 gem 'rails_admin', github: 'sferik/rails_admin'
 gem 'therubyracer'
-gem 'thin'
+gem 'puma'
+gem 'foreman'
 
 group :doc do
   gem 'sdoc', require: false
