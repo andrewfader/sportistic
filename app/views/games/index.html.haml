@@ -13,7 +13,7 @@
       %tr
         %td= link_to game.start, game
         %td= render game.team, icon: true
-        %td= render game.vs_team, icon: true
+        %td= render game.vs_team, icon: true if game.vs_team
         %td= game.location
 %p
 #map-index
