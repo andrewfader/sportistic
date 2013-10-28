@@ -42,6 +42,10 @@ class UsersController < InheritedResources::Base
     super
   end
 
+  def index
+    @team_id = params[:team_id] if params[:team_id]
+  end
+
   private
 
   def permitted_params

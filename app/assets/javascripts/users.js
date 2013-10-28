@@ -166,4 +166,9 @@ function readyUp() {
       $.modal.close();
     });
   }
+  if ($('.invframe')) {
+    $.get($('.invframe').data('src'), function(j, xhr, data) {
+      $('.invframe').html(j);
+    });
+  }
 }

@@ -1,6 +1,7 @@
 class InvitationsController < Devise::InvitationsController
   prepend_before_filter :check_for_existing_user, only: [:edit, :update, :destroy]
   prepend_before_filter :configure_permitted_parameters
+  layout false
 
   def after_accept_path_for(user)
     team_path(Team.associate(user, user.invited_by_id))

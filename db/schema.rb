@@ -30,9 +30,6 @@ ActiveRecord::Schema.define(version: 20131028141524) do
     t.integer  "vs_team_id"
   end
 
-  add_index "games", ["team_id"], name: "index_games_on_team_id", using: :btree
-  add_index "games", ["vs_team_id"], name: "index_games_on_vs_team_id", using: :btree
-
   create_table "leagues", force: true do |t|
     t.string   "name"
     t.string   "url"
