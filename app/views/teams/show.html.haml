@@ -31,7 +31,7 @@
           = link_to user.name, user_path(user)
           (#{link_to "Approve", user_approve_path(user, team_id: @team.id)})
 
-  = link_to "Invite new players to my team", users_path
+  = link_to "Invite new players to my team", users_path(team_id: @team.id)
   %br
   = link_to "Add a new game", new_team_game_path(@team.id)
   - if can? :email, @team
