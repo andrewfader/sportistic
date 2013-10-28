@@ -3,11 +3,11 @@
     %tr
       %td Name
       %td Description
-      %td Count
+      %td Location
   - @leagues.each do |league|
     %tr
       %td=link_to league.name, league.url
       %td=league.description
-      %td=league.teams.count
+      %td=league.location
 
 = render "leagues/new"

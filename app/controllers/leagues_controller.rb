@@ -13,6 +13,6 @@ class LeaguesController < InheritedResources::Base
   private
 
   def permitted_params
-    params.permit(league: [:name, :url, :description, :pending])
+    params.permit(league: [:name, :url, :description, :pending, :location])
   end
 end
