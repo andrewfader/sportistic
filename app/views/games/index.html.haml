@@ -1,4 +1,19 @@
 - if current_user
   = link_to "Create a game", new_game_path if current_user.member_teams.present? && Team.where(captain_id: current_user.id).present?
+%p
+- if (games = Game.where("start > ? AND start < ?", Time.now, Time.now + 1.month)).present?
+  %table.datatable
+    %thead
+      %tr
+        %th Team
+        %th Date
+        %th Location
+    - games.each do |game|
+      %tr
+        %td= render game.team, icon: true
+        %td= game.start
+        %td= game.location
+%p
 #map-index
+%p
 .calendar
