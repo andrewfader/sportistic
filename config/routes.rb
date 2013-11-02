@@ -23,4 +23,5 @@ Sportistic::Application.routes.draw do
     get :autocomplete_team_name, on: :collection
   end
   get :about, to: 'about#index'
+  get :launch, to: 'launch#index'
 end
