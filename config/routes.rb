@@ -24,4 +24,5 @@ Sportistic::Application.routes.draw do
   end
   get :about, to: 'about#index'
   get :launch, to: 'launch#index'
+  get :welcome, to: 'home#index'
 end
