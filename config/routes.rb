@@ -1,6 +1,6 @@
 Sportistic::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-  root 'home#index'
+  root 'launch#index'
   devise_for :users, path_prefix: "my", controllers: { registrations: "registrations", invitations: "invitations" }
 
   resources :users, only: [:show, :edit, :update, :index] do
