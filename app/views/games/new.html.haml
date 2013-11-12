@@ -1,5 +1,4 @@
 = simple_form_for @game do |f|
-  = f.input :title
   = f.input :location
   = f.input :start, as: :ui_date_picker
   - if @team.present?
@@ -10,6 +9,6 @@
   = f.input :vs_team_id, as: :hidden
   = f.label "Versus:"
   = f.autocomplete_field :vs_team, autocomplete_team_name_games_path, id_element: '#game_vs_team_id', value: ""
-  = f.input :public, as: :boolean, label: "Public game"
+  -# = f.input :public, as: :boolean, label: "Public game"
   = f.input :creator_id, as: :hidden, input_html: { value: current_user.id }
   = f.submit

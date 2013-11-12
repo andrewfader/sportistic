@@ -1,14 +1,18 @@
+%p
 %h3=link_to "Create Team", new_team_path if can? :create, Team
 - if current_user && current_user.member_teams.present?
-  %h2 My Teams"
+  %p
+  %h2 My Teams
   .team_list
     = render "list", teams: current_user.member_teams
+  %p
 
 %h2 All Teams
 %table.datatable
   %thead
     %tr
       %th Name
+      %th Captain
       %th Sport
       %th Location
       %th Experience Level
@@ -16,6 +20,7 @@
   - Team.all.each do |team|
     %tr
       %td= render team, icon: false
+      %td= render team.captain
       %td
         - team.sports.map(&:name).each do |sport|
           = image_tag "#{sport.downcase}.png", title: sport, alt: sport

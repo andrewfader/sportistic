@@ -16,7 +16,7 @@
     %ul
       - games.each do |game|
         %li
-          = link_to game.title, game_path(game)
+          = link_to game.start, game_path(game)
 .roster
   %h3 Captain: #{link_to @team.captain.name, user_path(@team.captain)}
   %h3 Roster
