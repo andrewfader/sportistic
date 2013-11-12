@@ -25,12 +25,12 @@ function readyUp() {
 
   $('input[data-autocomplete]').railsAutocomplete();
 
-  if ($('#user_city').length > 0) {
-    $('#user_city').suggest({key: 'AIzaSyBZ1M9CIeCufVkulo1zYFtJ-xZsYJD81sM', filter:'(all type:/location/citytown)', flyout: false});
-  }
-  if ($('#team_location').length > 0) {
-    $('#team_location').suggest({key: 'AIzaSyBZ1M9CIeCufVkulo1zYFtJ-xZsYJD81sM', filter:'(all type:/location/citytown)', flyout: false});
-  }
+  // if ($('#user_city').length > 0) {
+    // $('#user_city').suggest({key: 'AIzaSyBZ1M9CIeCufVkulo1zYFtJ-xZsYJD81sM', filter:'(all type:/location/citytown)', flyout: false});
+  // }
+  // if ($('#team_location').length > 0) {
+    // $('#team_location').suggest({key: 'AIzaSyBZ1M9CIeCufVkulo1zYFtJ-xZsYJD81sM', filter:'(all type:/location/citytown)', flyout: false});
+  // }
 
   if ($('.pick_sport').length > 0) {
     var sports;

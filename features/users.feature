@@ -8,7 +8,7 @@ Feature: User signup, login, and profile
     And I fill in "user_password" with "foobar"
     And I fill in "Password confirmation" with "foobar"
     And I fill in "Name" with "Michael Phelps"
-    And I fill in "City" with "NYC"
+    And I select "Williamsburg" from "Location"
     And I fill in "State" with "Wisconsin"
     And I choose "Male"
     And I check "Basketball"
@@ -21,7 +21,7 @@ Feature: User signup, login, and profile
     And I wait for the request to finish
     And I follow "View Updated Profile"
     Then I should see "Michael Phelps"
-    And I should see "NYC"
+    And I should see "Williamsburg"
     And I should see "Wisconsin"
     And I should see "Basketball"
     And I should not see "Baseball"
