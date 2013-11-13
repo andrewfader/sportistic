@@ -13,6 +13,10 @@ Game::LOCATIONS = JSON.parse("[\"Allerton\",\"Alphabet City\",\"Arden Heights\",
     "/games/#{id}"
   end
 
+  def self.all
+    super.where("start > ? AND start < ?", Time.now, Time.now + 1.month)
+  end
+
   def as_json(options={})
     super.merge(url: url, icon: icon)
   end
