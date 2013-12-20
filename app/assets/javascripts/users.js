@@ -1,7 +1,7 @@
-$(document).bind('page:load', function() { readyUp() });
+$(document).on('page:load', function() { readyUp() });
 $(document).ready(function() { readyUp() });
 
-function readyUp() {
+var readyUp = function readyUp() {
   $('.datatable').dataTable({
     "bJQueryUI": true
   });
