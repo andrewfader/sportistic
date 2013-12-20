@@ -1,4 +1,4 @@
-Sportistic::Application.configure do
+Wavrr::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -78,8 +78,8 @@ Sportistic::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  config.action_mailer.default_url_options = {:host => "http://sportistic-dev.herokuapp.com/"}
-  config.action_controller.default_url_options = {:host => "http://sportistic-dev.herokuapp.com/"}
+  config.action_mailer.default_url_options = {:host => "http://wavrr.herokuapp.com/"}
+  config.action_controller.default_url_options = {:host => "http://wavrr.herokuapp.com/"}
 end
 
 ActionMailer::Base.smtp_settings = {

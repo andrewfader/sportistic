@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Sportistic::Application.config.secret_key_base = '368ade1347196ee9791b3812c24f65e4f032071236c488e8dd7bb5522177074e0d904b061eb4536329d82b013fe94d88be1e8a186333e5aa8c8162a95e0d330d'
+Wavrr::Application.config.secret_key_base = '368ade1347196ee9791b3812c24f65e4f032071236c488e8dd7bb5522177074e0d904b061eb4536329d82b013fe94d88be1e8a186333e5aa8c8162a95e0d330d'

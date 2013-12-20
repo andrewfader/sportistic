@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Sportistic::Application.load_tasks
+Wavrr::Application.load_tasks

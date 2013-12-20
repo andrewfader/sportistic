@@ -1,4 +1,4 @@
-Sportistic::Application.routes.draw do
+Wavrr::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   root 'launch#index'
   devise_for :users, path_prefix: "my", controllers: { registrations: "registrations", invitations: "invitations" }
