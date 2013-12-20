@@ -1,7 +1,7 @@
 = simple_form_for team do |f|
   = f.input :captain_id, input_html: { value: current_user.id }, as: :hidden
   = f.input :name
-  = f.input :location, as: :select, collection: Game::LOCATIONS
+  = f.input :location, :input_html =>{:id => 'gmaps-input-address'}
   = f.input :photo
   %p
     = f.input :experience_level, as: :radio_buttons, collection: ["Beginner","Intermediate","Advanced","Awesome"]

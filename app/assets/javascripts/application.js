@@ -15,5 +15,6 @@
 //= require dataTables/jquery.dataTables/
 //= require fullcalendar
 //= require turbolinks
+//= require gmaps-auto-complete
 //= require_tree ../../../vendor/assets/javascripts
 //= require_tree .

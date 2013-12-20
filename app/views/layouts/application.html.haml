@@ -2,12 +2,12 @@
 %html
   %head
     %title Wavrr
+    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ1M9CIeCufVkulo1zYFtJ-xZsYJD81sM&sensor=true"
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = stylesheet_link_tag "https://www.gstatic.com/freebase/suggest/4_2/suggest.min.css"
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Gudea'
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = javascript_include_tag "https://www.gstatic.com/freebase/suggest/4_2/suggest.min.js"
-    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ1M9CIeCufVkulo1zYFtJ-xZsYJD81sM&sensor=true"
     = csrf_meta_tags
   %body
     .header

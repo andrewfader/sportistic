@@ -31,6 +31,18 @@ function readyUp() {
   // if ($('#team_location').length > 0) {
     // $('#team_location').suggest({key: 'AIzaSyBZ1M9CIeCufVkulo1zYFtJ-xZsYJD81sM', filter:'(all type:/location/citytown)', flyout: false});
   // }
+  var completer;
+
+  completer = new GmapsCompleter({
+    inputField: '#gmaps-input-address',
+    errorField: '#gmaps-error',
+    mapElem: 'null'
+  });
+
+  completer.autoCompleteInit({
+    country: "USA",
+    region: "US"
+  });
 
   if ($('.pick_sport').length > 0) {
     var sports;

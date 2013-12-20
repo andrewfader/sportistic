@@ -4,8 +4,7 @@
   = f.hidden_field :invitation_token
   = f.input :name
   = f.input :gender, as: :radio_buttons, collection: ["Male","Female"]
-  = f.input :city, label: "Location", as: :select, collection: Game::LOCATIONS
-  = f.input :state
+  = f.input :city, label: "Location",:input_html =>{:id => 'gmaps-input-address'}
   = f.simple_fields_for :user_sports_attributes do |f|
     = f.input :sport, collection: Sport.all, as: :check_boxes, include_blank: false
   = f.input :password

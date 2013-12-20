@@ -5,6 +5,6 @@
   = f.input :bio
   = f.input :email, :required => true, :autofocus => true
   = f.input :phone
-  = f.input :city, label: "Location", as: :select, collection: Game::LOCATIONS
+  = f.input :city, label: "Location", :input_html =>{:id => 'gmaps-input-address'}
   = f.input :state
   = f.input :achievements

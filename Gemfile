@@ -16,6 +16,7 @@ gem 'inherited_resources', github: 'josevalim/inherited_resources'
 gem 'jbuilder', '~> 1.0.1'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'letter_opener', group: :development
 gem 'mini_magick'
 gem 'memcachier'
@@ -35,6 +36,7 @@ gem 'rails_admin', github: 'sferik/rails_admin'
 gem 'therubyracer'
 gem 'puma'
 gem 'foreman'
+gem 'gmaps-autocomplete-rails', github: 'kristianmandrup/gmaps-autocomplete-rails'
 
 group :doc do
   gem 'sdoc', require: false

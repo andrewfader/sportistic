@@ -3,6 +3,6 @@
   = f.hidden_field :pending, value: true
   = f.input :name
   = f.input :url, label: "URL"
-  = f.input :location
+  = f.input :location, :input_html =>{:id => 'gmaps-input-address'}
   = f.input :description
   = f.submit "Suggest League"
