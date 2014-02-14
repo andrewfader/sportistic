@@ -33,11 +33,11 @@ class RegistrationsController < Devise::RegistrationsController
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) do |u|
-      u.permit(:email, :password, :password_confirmation, :remember_me, :name, {user_sports_attributes: [:sport_id, :position]}, :state, :city, :privacy_toggle, :gender, :interests, :photo, :bio, :achievements, :distance_to_travel, :desire_to_join, :experience_level, :availability, :phone, photos_attributes: ['title', 'image', '_destroy'])
+      u.permit(:email, :password, :password_confirmation, :remember_me, :name, {user_sports_attributes: [:sport_id, :position, :experience_level]}, :state, :city, :privacy_toggle, :gender, :interests, :photo, :bio, :achievements, :distance_to_travel, :desire_to_join, :experience_level, :availability, :phone, photos_attributes: ['title', 'image', '_destroy'])
 
     end
     devise_parameter_sanitizer.for(:account_update) do |u|
-      u.permit(:email, :password, :current_password, :password_confirmation, :remember_me, :state, :name, {user_sports_attributes: [:sport_id, :position]}, :city, :privacy_toggle, :gender, :interests, :photo, :bio, :achievements, :distance_to_travel, :desire_to_join, :experience_level, :availability, :phone, photos_attributes: ['title', 'image', '_destroy'])
+      u.permit(:email, :password, :current_password, :password_confirmation, :remember_me, :state, :name, {user_sports_attributes: [:sport_id, :position, :experience_level]}, :city, :privacy_toggle, :gender, :interests, :photo, :bio, :achievements, :distance_to_travel, :desire_to_join, :experience_level, :availability, :phone, photos_attributes: ['title', 'image', '_destroy'])
     end
 
     devise_parameter_sanitizer.for(:invite) do |u|

@@ -32,7 +32,7 @@
         %tr
           %td= image_tag "#{user_sport.sport.name.downcase}.png", width: 25, height: 25
           %td #{user_sport.sport.name}#{user_sport.position.present? ? ": #{user_sport.position.try(:flatten).try(:to_sentence)}" : ""}
-  .experience_level Experience Level: #{@user.experience_level}
+          %td.experience_level Experience Level: #{user_sport.experience_level}
   .availability Availability: #{@user.availability.to_sentence}
   .distance_to_travel Distance Willing to Travel: #{@user.distance_to_travel}
   .desire_to_join Team Status: #{@user.desire_to_join ? "Looking for a team" : "All set"}

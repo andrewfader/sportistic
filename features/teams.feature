@@ -3,7 +3,7 @@ Feature: Teams
   Scenario:
     Given a logged in user
     And a league
-    When I go to the home page
+    When I go to the teams page
     And I follow "Create Team"
     And I fill in "Name" with "Hanshin Tigers"
     And I fill in "Location" with "Hokkaido"
@@ -23,6 +23,6 @@ Feature: Teams
 
   Scenario: Matching teams
     Given a logged in user
-    When I go to the home page
+    When I go to the about page
     And I follow "Profile"
     And I follow "Edit my athletic info"

@@ -14,8 +14,8 @@
             %p
               = g.input :sport_id, as: :hidden
               = g.input :position, collection: g.object.sport.positions, as: :check_boxes, include_hidden: false, include_blank: false, label: false
-    %p
-      = f.input :experience_level, as: :radio_buttons, collection: ["Beginner","Intermediate","Advanced","Awesome"]
+          %p
+            = g.input :experience_level, as: :radio_buttons, collection: ["Beginner","Intermediate","Advanced","Awesome"]
     %p
       = f.input :availability, as: :check_boxes, collection: ["Monday night","Tuesday night","Wednesday night","Thursday night","Friday night","Saturday morning","Sunday afternoon","Saturday evening","Sunday morning","Sunday afternoon","Sunday evening"]
     = f.input :distance_to_travel, label: "Distance willing to travel"

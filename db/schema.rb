@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131028141524) do
+ActiveRecord::Schema.define(version: 20140211223431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,13 +30,16 @@ ActiveRecord::Schema.define(version: 20131028141524) do
     t.integer  "vs_team_id"
   end
 
+  add_index "games", ["team_id"], name: "index_games_on_team_id", using: :btree
+  add_index "games", ["vs_team_id"], name: "index_games_on_vs_team_id", using: :btree
+
   create_table "leagues", force: true do |t|
     t.string   "name"
     t.string   "url"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "pending",     default: "false"
+    t.boolean  "pending",     default: false
     t.string   "location"
   end
 
@@ -114,6 +117,7 @@ ActiveRecord::Schema.define(version: 20131028141524) do
     t.integer "user_id"
     t.string  "position"
     t.integer "sport_id"
+    t.string  "experience_level"
   end
 
   create_table "user_teams", force: true do |t|
@@ -126,7 +130,7 @@ ActiveRecord::Schema.define(version: 20131028141524) do
   add_index "user_teams", ["user_id"], name: "index_user_teams_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "",      null: false
+    t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: ""
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -158,7 +162,7 @@ ActiveRecord::Schema.define(version: 20131028141524) do
     t.string   "invited_by_type"
     t.integer  "invited_to_id"
     t.string   "state"
-    t.boolean  "is_admin",               default: "false"
+    t.boolean  "is_admin",               default: false
     t.datetime "invitation_created_at"
   end
 
