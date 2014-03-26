@@ -5,8 +5,8 @@ Feature: Teams
     And a league
     When I go to the teams page
     And I follow "Create Team"
-    And I fill in "Name" with "Hanshin Tigers"
-    And I fill in "Location" with "Hokkaido"
+    And I fill in "team_name" with "Hanshin Tigers"
+    And I fill in "team[location]" with "Hokkaido"
     And I choose "Baseball"
     And I choose "Beginner"
     And I select "MLB" from "League"

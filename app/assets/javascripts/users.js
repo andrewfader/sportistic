@@ -23,7 +23,9 @@ var readyUp = function readyUp() {
   $('a').not('.logo').button();
   $('input[type=submit]').button();
 
-  $('input[data-autocomplete]').railsAutocomplete();
+  if($('input[data-autocomplete]').length > 0) {
+    $('input[data-autocomplete]').railsAutocomplete();
+  }
 
   // if ($('#user_city').length > 0) {
     // $('#user_city').suggest({key: 'AIzaSyBZ1M9CIeCufVkulo1zYFtJ-xZsYJD81sM', filter:'(all type:/location/citytown)', flyout: false});
