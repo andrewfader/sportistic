@@ -37,7 +37,7 @@ class UsersController < InheritedResources::Base
     params["user"].delete("team_ids")
     params["user"]["user_sports_attributes"].each do |k,v|
       params["user"]["user_sports_attributes"][k]["position"] = v["position"].map(&:presence).compact
-      params["user"]["user_sports_attributes"][k]["experience_level"] = v["experience_level"].map(&:presence).compact
+      params["user"]["user_sports_attributes"][k]["experience_level"] = v["experience_level"]
     end
 
     super
@@ -50,7 +50,7 @@ class UsersController < InheritedResources::Base
   private
 
   def permitted_params
-    params.permit(user: [{user_sports_attributes: [:id, :sport_id, {position: [], experience_level: []}]}, {availability: []}, :experience_level, :distance_to_travel, :desire_to_join, :privacy_toggle, :team_ids, {teams: []}])
+    params.permit(user: [{user_sports_attributes: [:id, :sport_id, {position: []}, :experience_level]}, {availability: []}, :experience_level, :distance_to_travel, :desire_to_join, :privacy_toggle, :team_ids, {teams: []}])
 
   end
 end

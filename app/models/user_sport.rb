@@ -3,4 +3,5 @@ class UserSport < ActiveRecord::Base
   belongs_to :user
   belongs_to_active_hash :sport
   serialize :position
+  serialize :experience_level
 end
