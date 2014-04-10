@@ -35,4 +35,12 @@ class User < ActiveRecord::Base
   def availability
     super ? super.map(&:presence).compact : []
   end
+
+  def experience_level
+    output = ""
+    user_sports.each do |us|
+      output << "#{us.sport.name}: #{us.experience_level}<br>"
+    end
+    output
+  end
 end
