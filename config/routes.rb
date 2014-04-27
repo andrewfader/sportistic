@@ -1,6 +1,6 @@
 Wavrr::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-  root 'launch#index'
+  root ‘home#index'
   devise_for :users, path_prefix: "my", controllers: { registrations: "registrations", invitations: "invitations" }
 
   resources :users, only: [:show, :edit, :update, :index] do
