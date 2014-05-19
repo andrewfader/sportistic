@@ -12,12 +12,13 @@ class TeamsController < InheritedResources::Base
   end
 
   def new
-    @team.team_sports.build
+    @team.team_sports.build if @team.team_sports.empty?
     @team.team_league = TeamLeague.new
     super
   end
 
   def edit
+    @team.team_sports.build if @team.team_sports.empty?
     @team.team_league = TeamLeague.new if @team.team_league == nil
     super
   end
@@ -63,6 +64,6 @@ class TeamsController < InheritedResources::Base
   private
 
   def permitted_params
-    params.permit(team: [:name, :location, :sport, {team_league_attributes: [:league_id]}, :location, :captain_id, :experience_level, :bio, :achievements, :photo, :team_type, :year_founded, {availability: []}, {photos_attributes: ['title', 'image', '_destroy']}, {players_attributes: [:name]}, {team_sports_attributes: [:sport_id]}])
+    params.permit(team: [:name, :location, :sport, {team_league_attributes: [:league_id, :id]}, :location, :captain_id, :experience_level, :bio, :achievements, :photo, :team_type, :year_founded, {availability: []}, {photos_attributes: ['title', 'image', '_destroy']}, {players_attributes: [:name]}, {team_sports_attributes: [:sport_id, :id]}])
   end
 end
