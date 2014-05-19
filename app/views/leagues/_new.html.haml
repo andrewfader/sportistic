@@ -5,4 +5,7 @@
   = f.input :url, label: "URL"
   = f.input :location, :input_html =>{:id => 'gmaps-input-address'}
   = f.input :description
+  - league_sport = f.object.league_sports.build
+  = f.simple_fields_for :league_sports do |g|
+    = g.input :sport_id, label: "Sport", collection: Sport.all, as: :check_boxes, include_blank: false,as: :radio_buttons
   = f.submit "Suggest League"

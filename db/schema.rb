@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140211223431) do
+ActiveRecord::Schema.define(version: 20140519210157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,11 @@ ActiveRecord::Schema.define(version: 20140211223431) do
     t.string   "latitude"
     t.string   "longitude"
     t.integer  "vs_team_id"
+  end
+
+  create_table "league_sports", force: true do |t|
+    t.integer "league_id"
+    t.integer "sport_id"
   end
 
   create_table "leagues", force: true do |t|

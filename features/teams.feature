@@ -7,7 +7,7 @@ Feature: Teams
     And I follow "Create Team"
     And I fill in "team_name" with "Hanshin Tigers"
     And I fill in "team[location]" with "Hokkaido"
-    And I choose "Baseball"
+    And I choose "Baseball" within ".team_team_sports_sport_id"
     And I choose "Beginner"
     And I select "MLB" from "League"
     And I fill in "Year founded" with "1996"

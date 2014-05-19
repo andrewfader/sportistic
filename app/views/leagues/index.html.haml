@@ -2,11 +2,17 @@
   %thead
     %tr
       %td Name
+      %td Sport
       %td Description
       %td Location
   - @leagues.each do |league|
     %tr
       %td=link_to league.name, league.url
+      %td
+        - league.sports.map(&:name).each do |sport|
+          = image_tag "#{sport.downcase}.png", title: sport, alt: sport
+          %br
+          =sport
       %td=league.description
       %td=league.location
 
