@@ -78,8 +78,8 @@ Wavrr::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  config.action_mailer.default_url_options = {:host => "http://wavrr.herokuapp.com/"}
-  config.action_controller.default_url_options = {:host => "http://wavrr.herokuapp.com/"}
+  config.action_mailer.default_url_options = {:host => "http://wavrr.com/"}
+  config.action_controller.default_url_options = {:host => "http://wavrr.com/"}
 end
 
 ActionMailer::Base.smtp_settings = {
