@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140519210157) do
+ActiveRecord::Schema.define(version: 20140523183121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,9 @@ ActiveRecord::Schema.define(version: 20140519210157) do
     t.string   "longitude"
     t.integer  "vs_team_id"
   end
+
+  add_index "games", ["team_id"], name: "index_games_on_team_id", using: :btree
+  add_index "games", ["vs_team_id"], name: "index_games_on_vs_team_id", using: :btree
 
   create_table "league_sports", force: true do |t|
     t.integer "league_id"
@@ -146,14 +149,14 @@ ActiveRecord::Schema.define(version: 20140519210157) do
     t.datetime "updated_at"
     t.string   "name"
     t.string   "gender"
-    t.boolean  "privacy_toggle"
+    t.boolean  "privacy_toggle",         default: true
     t.string   "photo"
     t.text     "bio"
     t.string   "phone"
     t.string   "city"
     t.string   "achievements"
     t.string   "experience_level"
-    t.boolean  "desire_to_join"
+    t.boolean  "desire_to_join",         default: true
     t.string   "distance_to_travel"
     t.string   "availability"
     t.string   "invitation_token"

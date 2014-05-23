@@ -35,9 +35,11 @@ class UsersController < InheritedResources::Base
       end
     end
     params["user"].delete("team_ids")
-    params["user"]["user_sports_attributes"].each do |k,v|
-      params["user"]["user_sports_attributes"][k]["position"] = v["position"].map(&:presence).compact
-      params["user"]["user_sports_attributes"][k]["experience_level"] = v["experience_level"]
+    if params["user"]["user_sports_attributes"]
+      params["user"]["user_sports_attributes"].each do |k,v|
+        params["user"]["user_sports_attributes"][k]["position"] = v["position"].map(&:presence).compact
+        params["user"]["user_sports_attributes"][k]["experience_level"] = v["experience_level"]
+      end
     end
 
     super
